@@ -151,6 +151,17 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 .ev.in{background:rgba(251,191,36,.08);color:var(--am);border:1px solid rgba(251,191,36,.18)}
 .ev.as{background:rgba(139,92,246,.08);color:#a78bfa;border:1px solid rgba(139,92,246,.18)}
 
+/* ─── KPI TABLE ─── */
+.kpi-table{display:grid;gap:0}
+.kpi-row{display:grid;grid-template-columns:1.2fr 1fr 1fr;border:1px solid var(--bd);border-bottom:none;background:var(--sf)}
+.kpi-row:last-child{border-bottom:1px solid var(--bd);border-radius:0 0 var(--r) var(--r)}
+.kpi-row.kpi-head{background:var(--sf2);border-radius:var(--r) var(--r) 0 0}
+.kpi-row.kpi-head div{font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.kpi-row div{padding:10px 16px;font-size:14px;color:var(--dim);border-right:1px solid var(--bd)}
+.kpi-row div:last-child{border-right:none}
+.kpi-metric{font-weight:500;color:var(--tx) !important}
+.kpi-unk{font-size:12px;color:var(--am);background:var(--amg);padding:2px 8px;border-radius:4px;border:1px solid rgba(251,191,36,.18)}
+
 /* ─── SVG CONTAINER ─── */
 .svgw{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;margin-top:12px}
 .svgw svg{max-width:100%;max-height:100%;height:auto}
@@ -550,67 +561,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
           </div>
         </article>
 
-        <!-- ═══ S6: USE CASES vs VERTICALS ═══ -->
-        <article class="s">
-          <div class="inner">
-            <div class="ki anim">Content Architecture</div>
-            <h2 class="anim">
-              "Use Cases" page lists industries, not jobs-to-be-done
-            </h2>
-            <p class="anim" style="max-width: 680px">
-              The current page answers <em>"who uses Boltline?"</em> but not
-              <em>"what problems does Boltline solve?"</em> &mdash; the question
-              buyers actually search for.
-            </p>
-            <div class="uc-grid anim">
-              <div class="uc-col">
-                <div class="uc-lbl now">What's there now</div>
-                <div class="uc-item strike">Space &amp; Defense</div>
-                <div class="uc-item strike">Medical &amp; Biotech</div>
-                <div class="uc-item strike">Advanced Manufacturing</div>
-                <div class="uc-item strike">Alternative Energy</div>
-                <div class="uc-item strike">Universities</div>
-                <div
-                  class="uc-item strike"
-                  style="color: var(--mut); font-style: italic"
-                >
-                  ...and many more
-                </div>
-              </div>
-              <div class="uc-arrow">&rarr;</div>
-              <div class="uc-col">
-                <div class="uc-lbl better">What buyers search for</div>
-                <div class="uc-item good">
-                  Managing BOMs from prototype to production
-                  <div class="uc-tag">SEO: "hardware BOM management"</div>
-                </div>
-                <div class="uc-item good">
-                  Tracking parts through test &amp; compliance
-                  <div class="uc-tag">SEO: "part traceability software"</div>
-                </div>
-                <div class="uc-item good">
-                  Replacing spreadsheet-based build travelers
-                  <div class="uc-tag">SEO: "digital work instructions"</div>
-                </div>
-                <div class="uc-item good">
-                  Preparing audit-ready records in hours
-                  <div class="uc-tag">SEO: "hardware audit trail"</div>
-                </div>
-                <div class="uc-item good">
-                  Unifying eng, supply chain &amp; manufacturing data
-                  <div class="uc-tag">SEO: "hardware lifecycle management"</div>
-                </div>
-              </div>
-            </div>
-            <div class="co anim">
-              Keep the industry pages as social proof &mdash; but add true
-              use-case pages that rank for buyer-intent keywords and convert
-              mid-funnel visitors. Each doubles as a landing page for campaigns.
-            </div>
-          </div>
-        </article>
-
-        <!-- ═══ S7: USE CASE PAGE BEFORE/AFTER ═══ -->
+        <!-- ═══ S6: USE CASES BEFORE/AFTER ═══ -->
         <article class="s">
           <div
             class="inner"
@@ -621,8 +572,14 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
               justify-content: center;
             "
           >
-            <div class="ki anim">Before &amp; After</div>
-            <h2 class="anim">What the Use Cases page could look like</h2>
+            <div class="ki anim">Content Architecture</div>
+            <h2 class="anim">
+              Use Cases page lists industries, not jobs-to-be-done
+            </h2>
+            <p class="anim" style="max-width: 680px; margin-bottom: 8px">
+              Buyers search for problems, not industry labels. Reframe around
+              outcomes and each page doubles as a campaign landing page.
+            </p>
             <div class="svgw anim" style="flex: 1; min-height: 0">
               <svg
                 viewBox="0 0 920 440"
@@ -2221,7 +2178,140 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
           </div>
         </article>
 
-        <!-- ═══ S11: 30/60/90 ═══ -->
+        <!-- ═══ SAMPLE CAMPAIGN ═══ -->
+        <article class="s">
+          <div class="inner">
+            <div class="ki anim">Sample Campaign</div>
+            <h2 class="anim">
+              "From Spreadsheets to Traceability" &mdash; first proof-led
+              campaign
+            </h2>
+            <p class="anim" style="max-width: 680px">
+              One concrete example of the motion described in the system design.
+              Theme, channels, assets, expected output.
+            </p>
+            <div class="g g2 anim" style="margin-top: 18px">
+              <div class="c" style="border-left: 3px solid var(--ac)">
+                <h3 style="color: var(--ac)">Campaign Brief</h3>
+                <ul>
+                  <li>
+                    <strong style="color: var(--tx)">Theme:</strong> "Your BOM
+                    is a liability until it's traceable"
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">ICP:</strong> Engineering
+                    leads at 10-80 person hardware teams
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Vertical:</strong> Space
+                    &amp; Defense (highest proof density)
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Hook:</strong> Intuitive
+                    Machines case study &mdash; how traceability enabled lunar
+                    hardware at scale
+                  </li>
+                </ul>
+              </div>
+              <div class="c" style="border-left: 3px solid var(--pu)">
+                <h3 style="color: var(--pu)">Channel Mix</h3>
+                <ul>
+                  <li>
+                    <strong style="color: var(--tx)">LinkedIn:</strong> 3-post
+                    sequence (problem &rarr; proof &rarr; CTA)
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">SEO:</strong> Pillar page
+                    "hardware BOM management"
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Email:</strong> Nurture
+                    sequence to existing contacts
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Events:</strong> Webinar
+                    with customer champion
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="g g3 anim" style="margin-top: 14px">
+              <div class="c" style="text-align: center; padding: 16px">
+                <div
+                  style="
+                    font-family: &quot;Sora&quot;, sans-serif;
+                    font-size: 22px;
+                    font-weight: 800;
+                    color: var(--ac);
+                  "
+                >
+                  5
+                </div>
+                <div
+                  style="font-size: 12px; color: var(--dim); margin-top: 4px"
+                >
+                  Assets produced
+                </div>
+                <div
+                  style="font-size: 10px; color: var(--mut); margin-top: 2px"
+                >
+                  Case study, pillar page, lead magnet, webinar deck, email
+                  sequence
+                </div>
+              </div>
+              <div class="c" style="text-align: center; padding: 16px">
+                <div
+                  style="
+                    font-family: &quot;Sora&quot;, sans-serif;
+                    font-size: 22px;
+                    font-weight: 800;
+                    color: var(--pu);
+                  "
+                >
+                  3
+                </div>
+                <div
+                  style="font-size: 12px; color: var(--dim); margin-top: 4px"
+                >
+                  Channels activated
+                </div>
+                <div
+                  style="font-size: 10px; color: var(--mut); margin-top: 2px"
+                >
+                  LinkedIn, organic search, email &mdash; paid if budget allows
+                </div>
+              </div>
+              <div class="c" style="text-align: center; padding: 16px">
+                <div
+                  style="
+                    font-family: &quot;Sora&quot;, sans-serif;
+                    font-size: 22px;
+                    font-weight: 800;
+                    color: var(--gn);
+                  "
+                >
+                  1
+                </div>
+                <div
+                  style="font-size: 12px; color: var(--dim); margin-top: 4px"
+                >
+                  Measurable outcome
+                </div>
+                <div
+                  style="font-size: 10px; color: var(--mut); margin-top: 2px"
+                >
+                  Pipeline sourced from this campaign, tracked end-to-end
+                </div>
+              </div>
+            </div>
+            <div class="co anim" style="margin-top: 14px">
+              This is the template. Once we prove it works, we replicate across
+              verticals and use cases.
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ 30/60/90 ═══ -->
         <article class="s">
           <div class="inner">
             <div class="ki anim">Execution Roadmap</div>
@@ -2269,7 +2359,8 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                     ><span class="tag bl"
                       >SEO cluster for priority vertical</span
                     ><span class="tag bl">Events strategy / playbook</span
-                    ><span class="tag bl">Lead magnet test pages</span>
+                    ><span class="tag bl">Lead magnet test pages</span
+                    ><span class="tag bl">Monthly pipeline review</span>
                   </div>
                 </div>
               </div>
@@ -2289,7 +2380,8 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                     ><span class="tag gr">Content calendar by vertical</span
                     ><span class="tag gr">Pipeline impact report</span
                     ><span class="tag gr">Double down / cut playbook</span
-                    ><span class="tag gr">Q2 roadmap</span>
+                    ><span class="tag gr">Q2 roadmap</span
+                    ><span class="tag gr">Quarterly strategy reset</span>
                   </div>
                 </div>
               </div>
@@ -2297,94 +2389,180 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
           </div>
         </article>
 
-        <!-- ═══ S12: SALES PARTNERSHIP ═══ -->
+        <!-- ═══ S12: KPI TARGETS ═══ -->
         <article class="s">
           <div class="inner">
-            <div class="ki anim">Sales Alignment</div>
-            <h2 class="anim">How I'd partner with you</h2>
-            <p class="anim">
-              Marketing that works starts with a tight feedback loop &mdash; not
-              a handoff wall.
+            <div class="ki anim">KPI Targets</div>
+            <h2 class="anim">Baseline vs. 90-day target</h2>
+            <p class="anim" style="max-width: 680px">
+              Most baselines are unknown on day one &mdash; that's the point.
+              Establishing measurement is the first deliverable.
             </p>
-            <div class="g g3 anim">
-              <div class="cc">
-                <span class="cf w">Weekly</span>
-                <h3>Revenue Pod</h3>
-                <ul>
-                  <li>Lead volume + quality check</li>
-                  <li>Speed-to-follow-up review</li>
-                  <li>Live deal objection signals</li>
-                  <li>Asset requests</li>
-                </ul>
+            <div class="kpi-table anim" style="margin-top: 20px">
+              <div class="kpi-row kpi-head">
+                <div class="kpi-metric">Metric</div>
+                <div class="kpi-base">Baseline (Day 1)</div>
+                <div class="kpi-target">90-Day Target</div>
               </div>
-              <div class="cc">
-                <span class="cf m">Monthly</span>
-                <h3>Pipeline Review</h3>
-                <ul>
-                  <li>Source-to-stage conversion</li>
-                  <li>Win/loss pattern analysis</li>
-                  <li>Channel ROI trends</li>
-                  <li>Campaign contribution audit</li>
-                </ul>
+              <div class="kpi-row">
+                <div class="kpi-metric">Marketing-sourced pipeline</div>
+                <div class="kpi-base"><span class="kpi-unk">Unknown</span></div>
+                <div class="kpi-target" style="color: var(--gn)">
+                  Tracked &amp; growing MoM
+                </div>
               </div>
-              <div class="cc">
-                <span class="cf q">Quarterly</span>
-                <h3>Strategy Reset</h3>
-                <ul>
-                  <li>ICP segment performance</li>
-                  <li>Budget reallocation by evidence</li>
-                  <li>Content system expansion</li>
-                  <li>Next-quarter campaign themes</li>
-                </ul>
+              <div class="kpi-row">
+                <div class="kpi-metric">MQL &rarr; SQL conversion</div>
+                <div class="kpi-base">
+                  <span class="kpi-unk">No definitions</span>
+                </div>
+                <div class="kpi-target" style="color: var(--gn)">
+                  Defined stages + &ge;25%
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">Demo requests / month</div>
+                <div class="kpi-base"><span class="kpi-unk">Unknown</span></div>
+                <div class="kpi-target" style="color: var(--gn)">
+                  Baselined + 2x growth
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">Organic traffic (intent keywords)</div>
+                <div class="kpi-base">
+                  <span class="kpi-unk">Low / untracked</span>
+                </div>
+                <div class="kpi-target" style="color: var(--gn)">
+                  Top 20 for 3 clusters
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">Lead source attribution</div>
+                <div class="kpi-base"><span class="kpi-unk">Partial</span></div>
+                <div class="kpi-target" style="color: var(--gn)">
+                  100% source taxonomy
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">Sales asset coverage</div>
+                <div class="kpi-base">
+                  <span class="kpi-unk">Gap analysis TBD</span>
+                </div>
+                <div class="kpi-target" style="color: var(--gn)">
+                  Top 5 gaps filled
+                </div>
               </div>
             </div>
-            <div class="co pu anim" style="margin-top: 24px">
-              Core principle: shared definitions, shared dashboard, shared
-              accountability. No black-box marketing.
+            <div class="co anim" style="margin-top: 18px">
+              Philosophy: measure pipeline quality, not vanity volume. Every
+              metric gets an owner and a review cadence by day 30.
             </div>
           </div>
         </article>
 
-        <!-- ═══ S13: METRICS ═══ -->
+        <!-- ═══ S13: DECISION + ASK ═══ -->
         <article class="s">
           <div class="inner">
-            <div class="ki anim">Scorecard</div>
-            <h2 class="anim">What I'd measure from day one</h2>
-            <div class="g g3 anim" style="margin-top: 24px">
-              <div class="c mg">
-                <h3 style="color: var(--ac)">Leading Indicators</h3>
-                <div class="mi">Qualified demo requests by ICP</div>
-                <div class="mi">Landing page conversion by offer</div>
-                <div class="mi">Webinar/event to meeting rate</div>
-                <div class="mi">Organic rank for intent keywords</div>
+            <div class="ki anim">Week 1 Ask</div>
+            <h2 class="anim">What I need from you to hit the ground running</h2>
+            <div class="ql anim" style="margin-top: 24px">
+              <div class="qi">
+                <div
+                  class="qn"
+                  style="
+                    background: var(--gng);
+                    border-color: rgba(52, 211, 153, 0.25);
+                    color: var(--gn);
+                  "
+                >
+                  1
+                </div>
+                <div>
+                  <div class="qt" style="font-size: 17px">
+                    Which vertical should we lead with?
+                  </div>
+                  <p style="margin-top: 4px; font-size: 13px">
+                    I'll focus the first campaign, content, and ICP messaging on
+                    one segment. We can expand once we prove the motion.
+                  </p>
+                </div>
               </div>
-              <div class="c mg">
-                <h3 style="color: var(--pu)">Pipeline Indicators</h3>
-                <div class="mi">MQL &rarr; SQL conversion rate</div>
-                <div class="mi">SQL acceptance by Sales</div>
-                <div class="mi">Pipeline sourced + influenced</div>
-                <div class="mi">CAC proxy by channel (trend)</div>
+              <div class="qi">
+                <div
+                  class="qn"
+                  style="
+                    background: var(--gng);
+                    border-color: rgba(52, 211, 153, 0.25);
+                    color: var(--gn);
+                  "
+                >
+                  2
+                </div>
+                <div>
+                  <div class="qt" style="font-size: 17px">
+                    Access to HubSpot, GA, and any existing pipeline data
+                  </div>
+                  <p style="margin-top: 4px; font-size: 13px">
+                    Can't build a dashboard on assumptions. Even messy data
+                    tells me where to start.
+                  </p>
+                </div>
               </div>
-              <div class="c mg">
-                <h3 style="color: var(--gn)">Quality Indicators</h3>
-                <div class="mi">Win rate (marketing-sourced)</div>
-                <div class="mi">Sales cycle length trend</div>
-                <div class="mi">"No decision" root causes</div>
-                <div class="mi">Top disqualification reasons</div>
+              <div class="qi">
+                <div
+                  class="qn"
+                  style="
+                    background: var(--gng);
+                    border-color: rgba(52, 211, 153, 0.25);
+                    color: var(--gn);
+                  "
+                >
+                  3
+                </div>
+                <div>
+                  <div class="qt" style="font-size: 17px">
+                    30 minutes a week for a joint revenue pod
+                  </div>
+                  <p style="margin-top: 4px; font-size: 13px">
+                    Marketing and Sales aligned weekly from the start. Shared
+                    definitions, shared accountability, no black-box marketing.
+                  </p>
+                </div>
+              </div>
+              <div class="qi">
+                <div
+                  class="qn"
+                  style="
+                    background: var(--gng);
+                    border-color: rgba(52, 211, 153, 0.25);
+                    color: var(--gn);
+                  "
+                >
+                  4
+                </div>
+                <div>
+                  <div class="qt" style="font-size: 17px">
+                    The non-negotiable pipeline number for H1
+                  </div>
+                  <p style="margin-top: 4px; font-size: 13px">
+                    I'll reverse-engineer the funnel math from that target and
+                    show you exactly how we get there.
+                  </p>
+                </div>
               </div>
             </div>
             <div class="co anim" style="margin-top: 24px">
-              Philosophy: measure pipeline quality, not vanity volume. Every
-              metric has an owner and a review cadence.
+              These four things let me ship real work in week 2 instead of
+              spending a month figuring out what to measure.
             </div>
           </div>
         </article>
 
-        <!-- ═══ S14: RISKS ═══ -->
-        <article class="s">
+        <!-- ═══ APPENDIX: RISKS ═══ -->
+        <article class="s" data-appendix="true">
           <div class="inner">
-            <div class="ki anim">Risks I'd Get Ahead Of</div>
-            <h2 class="anim">Likely failure modes and how I'd prevent them</h2>
+            <div class="ki anim">Appendix &mdash; Risks</div>
+            <h2 class="anim">Failure modes and how I'd prevent them</h2>
             <div class="g g3 anim" style="margin-top: 24px">
               <div class="c" style="border-top: 3px solid var(--rd)">
                 <h3 style="color: var(--rd)">Diffuse ICP</h3>
@@ -2417,45 +2595,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
           </div>
         </article>
 
-        <!-- ═══ S15: DISCUSSION ═══ -->
-        <article class="s">
-          <div class="inner">
-            <div class="ki anim">Let's Discuss</div>
-            <h2 class="anim">
-              Three decisions that unlock immediate execution
-            </h2>
-            <div class="ql anim">
-              <div class="qi">
-                <div class="qn">1</div>
-                <div class="qt">
-                  As you move from ~10 to ~100 person companies, which vertical
-                  should we lead with?
-                </div>
-              </div>
-              <div class="qi">
-                <div class="qn">2</div>
-                <div class="qt">
-                  What is the one non-negotiable pipeline outcome for this role
-                  in H1?
-                </div>
-              </div>
-              <div class="qi">
-                <div class="qn">3</div>
-                <div class="qt">
-                  What lead-quality threshold does Sales need to scale spend
-                  confidently?
-                </div>
-              </div>
-            </div>
-            <div class="co anim" style="margin-top: 32px">
-              The goal: a repeatable motion that consistently hands Sales better
-              opportunities, faster &mdash; and proves it with numbers every
-              week.
-            </div>
-          </div>
-        </article>
-
-        <!-- ═══ S16: APPENDIX ═══ -->
+        <!-- ═══ APPENDIX: METHODOLOGY ═══ -->
         <article class="s" data-appendix="true">
           <div class="inner">
             <div class="ki anim">Appendix &mdash; Methodology</div>
@@ -2531,7 +2671,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
       <!-- ═══ NAV ═══ -->
       <nav class="nb">
         <div class="nl">
-          <span class="nc" id="ctr">1 / 17</span
+          <span class="nc" id="ctr">1 / 14</span
           ><span class="nt" id="ttl"></span>
         </div>
         <div class="nd" id="dots"></div>
@@ -2545,7 +2685,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
     <script>
 const S=Array.from(document.querySelectorAll('.s')),C=document.getElementById('ctr'),T=document.getElementById('ttl'),D=document.getElementById('dots'),P=document.getElementById('pv'),N=document.getElementById('nx');
 let cur=0;
-const titles=['','Role Readback','Known vs. Listen','Property Audit','Website Teardown','Use Cases','Use Cases — Before/After','Funnel Diagnosis','ICP Hypothesis','Priority Matrix','System Design','30/60/90 Roadmap','Sales Partnership','Metrics','Risks','Discussion','Appendix'];
+const titles=['','Role Readback','Known vs. Listen','Property Audit','Website Teardown','Use Cases','Funnel Diagnosis','ICP Hypothesis','Priority Matrix','System Design','Sample Campaign','30/60/90 Roadmap','KPI Targets','Decision + Ask','Risks','Methodology'];
 S.forEach((s,i)=>{const d=document.createElement('div');d.className='dt'+(i===0?' on':'')+(s.dataset.appendix?' ap':'');d.onclick=()=>go(i);D.appendChild(d)});
 function go(i){if(i===cur||i<0||i>=S.length)return;const p=S[cur],n=S[i],fwd=i>cur;p.classList.remove('on');p.classList.add('out');n.style.transform=fwd?'translateX(24px)':'translateX(-24px)';n.style.opacity='0';n.classList.add('on');requestAnimationFrame(()=>requestAnimationFrame(()=>{n.style.transform='none';n.style.opacity='1'}));setTimeout(()=>{p.classList.remove('out');p.style.transform='';p.style.opacity=''},400);cur=i;ui()}
 function ui(){const main=S.filter(s=>!s.dataset.appendix).length;const isA=S[cur].dataset.appendix;C.textContent=isA?'Appendix':`${cur+1} / ${main}`;T.textContent=titles[cur]||'';document.querySelectorAll('.dt').forEach((d,i)=>d.classList.toggle('on',i===cur))}
