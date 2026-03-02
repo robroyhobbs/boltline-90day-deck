@@ -37,7 +37,7 @@ body::after{content:'';position:fixed;inset:0;opacity:.35;background-image:url("
 .s{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 64px;opacity:0;transform:translateX(24px);transition:opacity .4s cubic-bezier(.4,0,.2,1),transform .4s cubic-bezier(.4,0,.2,1);pointer-events:none;overflow-y:auto}
 .s.on{opacity:1;transform:none;pointer-events:auto}
 .s.out{opacity:0;transform:translateX(-24px)}
-.s .inner{max-width:1080px;width:100%;margin:0 auto}
+.s .inner{max-width:1080px;width:100%;margin:0 auto;flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
 
 /* slide-level stagger */
 .s.on .anim{animation:fadeUp .5s cubic-bezier(.4,0,.2,1) both}
@@ -544,15 +544,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 
         <!-- ═══ S6: USE CASES BEFORE/AFTER ═══ -->
         <article class="s">
-          <div
-            class="inner"
-            style="
-              height: 100%;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-            "
-          >
+          <div class="inner">
             <div class="ki anim">Content Architecture</div>
             <h2 class="anim">
               Use Cases page lists industries, not jobs-to-be-done
@@ -561,7 +553,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
               Buyers search for problems, not industry labels. Reframe around
               outcomes and each page doubles as a campaign landing page.
             </p>
-            <div class="svgw anim" style="flex: 1; min-height: 0">
+            <div class="svgw anim">
               <svg
                 viewBox="0 0 920 440"
                 fill="none"
@@ -1222,15 +1214,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 
         <!-- ═══ S8: FUNNEL ═══ -->
         <article class="s">
-          <div
-            class="inner"
-            style="
-              height: 100%;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-            "
-          >
+          <div class="inner">
             <div class="ki anim">Funnel Diagnosis</div>
             <h2 class="anim">Where the pipe narrows</h2>
             <div class="svgw anim">
@@ -1546,15 +1530,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 
         <!-- ═══ S9: PRIORITY MATRIX ═══ -->
         <article class="s">
-          <div
-            class="inner"
-            style="
-              height: 100%;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-            "
-          >
+          <div class="inner">
             <div class="ki anim">Focus Hypothesis</div>
             <h2 class="anim">Where to place the first bets</h2>
             <div class="svgw anim">
@@ -1869,15 +1845,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 
         <!-- ═══ S10: SYSTEM DESIGN ═══ -->
         <article class="s">
-          <div
-            class="inner"
-            style="
-              height: 100%;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-            "
-          >
+          <div class="inner">
             <div class="ki anim">System Design</div>
             <h2 class="anim">A compounding loop, not one-off campaigns</h2>
             <div class="svgw anim">
