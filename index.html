@@ -321,7 +321,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
         <article class="s">
           <div class="inner">
             <div class="ki anim">Starting Point</div>
-            <h2 class="anim">Facts first, then structure the unknowns</h2>
+            <h2 class="anim">Listen first, then pressure-test assumptions</h2>
             <div class="g g2 anim">
               <div class="c" style="border-left: 3px solid var(--gn)">
                 <h3 style="color: var(--gn)">What we know</h3>
@@ -353,30 +353,25 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 </ul>
               </div>
               <div class="c" style="border-left: 3px solid var(--am)">
-                <h3 style="color: var(--am)">What I'd validate in Week 1</h3>
+                <h3 style="color: var(--am)">What I'd listen for first</h3>
                 <ul>
                   <li>
-                    ICP tiers: what does the jump from ~10 to ~100 person
-                    companies look like?
+                    How does the team talk about ICP today? Where's the
+                    consensus, where's the debate?
                   </li>
                   <li>
-                    Expansion path: when do IT, procurement, QA stakeholders
-                    enter the buying process?
+                    Which deals are moving vs. stalling &mdash; and what
+                    patterns do reps see?
+                  </li>
+                  <li>What content or assets does Sales wish existed?</li>
+                  <li>
+                    Where are leads actually coming from &mdash; and what's
+                    instrumented vs. dark?
                   </li>
                   <li>
-                    Current lead source mix and real stage-by-stage conversion
-                    data
+                    How do buyers describe the product in their own words?
                   </li>
-                  <li>
-                    Top objections stalling or killing active deals right now
-                  </li>
-                  <li>
-                    Sales asset gaps &mdash; what do reps ask for that doesn't
-                    exist?
-                  </li>
-                  <li>
-                    HubSpot/analytics state: what's instrumented vs. dark?
-                  </li>
+                  <li>What has the team already tried that didn't work?</li>
                 </ul>
               </div>
             </div>
@@ -2548,7 +2543,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
     <script>
 const S=Array.from(document.querySelectorAll('.s')),C=document.getElementById('ctr'),T=document.getElementById('ttl'),D=document.getElementById('dots'),P=document.getElementById('pv'),N=document.getElementById('nx');
 let cur=0;
-const titles=['','Role Readback','Known vs. Unknown','Property Audit','Website Teardown','Use Cases','Use Cases — Before/After','Funnel Diagnosis','ICP Hypothesis','Priority Matrix','System Design','30/60/90 Roadmap','Sales Partnership','Metrics','Risks','Discussion','Appendix'];
+const titles=['','Role Readback','Known vs. Listen','Property Audit','Website Teardown','Use Cases','Use Cases — Before/After','Funnel Diagnosis','ICP Hypothesis','Priority Matrix','System Design','30/60/90 Roadmap','Sales Partnership','Metrics','Risks','Discussion','Appendix'];
 S.forEach((s,i)=>{const d=document.createElement('div');d.className='dt'+(i===0?' on':'')+(s.dataset.appendix?' ap':'');d.onclick=()=>go(i);D.appendChild(d)});
 function go(i){if(i===cur||i<0||i>=S.length)return;const p=S[cur],n=S[i],fwd=i>cur;p.classList.remove('on');p.classList.add('out');n.style.transform=fwd?'translateX(24px)':'translateX(-24px)';n.style.opacity='0';n.classList.add('on');requestAnimationFrame(()=>requestAnimationFrame(()=>{n.style.transform='none';n.style.opacity='1'}));setTimeout(()=>{p.classList.remove('out');p.style.transform='';p.style.opacity=''},400);cur=i;ui()}
 function ui(){const main=S.filter(s=>!s.dataset.appendix).length;const isA=S[cur].dataset.appendix;C.textContent=isA?'Appendix':`${cur+1} / ${main}`;T.textContent=titles[cur]||'';document.querySelectorAll('.dt').forEach((d,i)=>d.classList.toggle('on',i===cur))}
