@@ -1,0 +1,1888 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Boltline | First 90 Days — Growth Marketing Hypothesis</title>
+    <!-- prettier-ignore -->
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* ─── TOKENS ─── */
+:root {
+  --bg:#080c16; --sf:rgba(255,255,255,.03); --sf2:rgba(255,255,255,.06);
+  --bd:rgba(255,255,255,.08); --bd2:rgba(255,255,255,.12);
+  --tx:#eef2f7; --dim:#b0bece; --mut:#8494a7;
+  --ac:#38bdf8; --acg:rgba(56,189,248,.1); --ac2:rgba(56,189,248,.25);
+  --pu:#8b5cf6; --pug:rgba(139,92,246,.1);
+  --gn:#34d399; --gng:rgba(52,211,153,.08);
+  --am:#fbbf24; --amg:rgba(251,191,36,.08);
+  --rd:#f87171; --rdg:rgba(248,113,113,.08);
+  --r:12px; --r2:8px;
+}
+
+/* ─── RESET ─── */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);overflow:hidden;height:100dvh;-webkit-font-smoothing:antialiased}
+
+/* ─── BG DEPTH ─── */
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(56,189,248,.04) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 80% 100%,rgba(139,92,246,.03) 0%,transparent 50%);pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+
+/* ─── DECK FRAME ─── */
+.deck{height:100dvh;display:grid;grid-template-rows:1fr auto;position:relative;z-index:1}
+.sc{position:relative;overflow:hidden}
+
+/* ─── SLIDES ─── */
+.s{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 64px;opacity:0;transform:translateX(24px);transition:opacity .4s cubic-bezier(.4,0,.2,1),transform .4s cubic-bezier(.4,0,.2,1);pointer-events:none;overflow-y:auto}
+.s.on{opacity:1;transform:none;pointer-events:auto}
+.s.out{opacity:0;transform:translateX(-24px)}
+.s .inner{max-width:1080px;width:100%;margin:0 auto}
+
+/* slide-level stagger */
+.s.on .anim{animation:fadeUp .5s cubic-bezier(.4,0,.2,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.s.on .anim:nth-child(1){animation-delay:.05s}
+.s.on .anim:nth-child(2){animation-delay:.12s}
+.s.on .anim:nth-child(3){animation-delay:.2s}
+.s.on .anim:nth-child(4){animation-delay:.28s}
+.s.on .anim:nth-child(5){animation-delay:.35s}
+.s.on .anim:nth-child(6){animation-delay:.42s}
+
+/* ─── TYPOGRAPHY ─── */
+.ki{font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);margin-bottom:14px;opacity:.85}
+h1{font-family:'Sora',sans-serif;font-size:clamp(32px,4.2vw,52px);font-weight:800;line-height:1.05;letter-spacing:-.03em;background:linear-gradient(135deg,var(--tx) 0%,var(--dim) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+h2{font-family:'Sora',sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:8px}
+h3{font-family:'Sora',sans-serif;font-size:14px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
+.sub{font-size:16px;color:var(--dim);margin-top:10px;max-width:560px;line-height:1.55;font-weight:400}
+p{color:var(--dim);line-height:1.55;font-size:14.5px}
+ul{list-style:none;padding:0}
+li{position:relative;padding-left:16px;margin-bottom:6px;font-size:14.5px;color:var(--dim);line-height:1.5}
+li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ac);opacity:.6}
+
+/* ─── GRID ─── */
+.g{display:grid;gap:14px;margin-top:18px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+
+/* ─── CARD ─── */
+.c{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:20px;backdrop-filter:blur(8px);transition:border-color .25s}
+.c:hover{border-color:var(--bd2)}
+
+/* ─── CALLOUT ─── */
+.co{margin-top:20px;padding:14px 18px;border-radius:var(--r);background:var(--acg);border:1px solid var(--ac2);font-size:14px;font-weight:500;color:var(--ac);line-height:1.5}
+.co.pu{background:var(--pug);border-color:rgba(139,92,246,.25);color:#c4b5fd}
+
+/* ─── STATS ─── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.st{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:18px 20px}
+.sv{font-family:'Sora',sans-serif;font-size:30px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.sl{font-size:12px;color:var(--mut);margin-top:6px;line-height:1.35}
+
+/* ─── SCORE ─── */
+.sc-list{display:grid;gap:10px;margin-top:18px}
+.sr{display:grid;grid-template-columns:160px 1fr 100px 40px;align-items:center;gap:14px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);padding:12px 16px}
+.sr-l{font-size:14px;font-weight:500}
+.sr-b{height:6px;background:rgba(255,255,255,.04);border-radius:99px;overflow:hidden}
+.sr-f{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--ac),var(--pu))}
+.sr-n{font-size:11.5px;color:var(--dim)}
+.sr-v{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;text-align:right}
+
+/* ─── READBACK ─── */
+.rb{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.ri{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);padding:12px 14px}
+.ri-i{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:12px;font-weight:700;background:var(--acg);border:1px solid var(--ac2);color:var(--ac)}
+.ri-t{font-size:14px;font-weight:500;line-height:1.35}
+.ri-s{font-size:12px;color:var(--dim);margin-top:2px}
+
+/* ─── PHASE / ROADMAP ─── */
+.tl{display:grid;gap:0;margin-top:18px}
+.ph{display:grid;grid-template-columns:88px 1fr;border:1px solid var(--bd);border-bottom:none}
+.ph:first-child{border-radius:var(--r) var(--r) 0 0}
+.ph:last-child{border-bottom:1px solid var(--bd);border-radius:0 0 var(--r) var(--r)}
+.ph-l{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--sf);border-right:1px solid var(--bd);padding:12px}
+.ph-d{font-family:'Sora',sans-serif;font-size:24px;font-weight:800}
+.ph-s{font-family:'Sora',sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+.ph-c{padding:16px 20px;background:var(--sf2)}
+.ph-t{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px}
+.ph-desc{font-size:12.5px;color:var(--mut);margin-bottom:10px;line-height:1.45}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 10px;border-radius:6px;font-weight:600}
+.tag.bl{background:rgba(56,189,248,.08);color:var(--ac);border:1px solid rgba(56,189,248,.18)}
+.tag.pr{background:rgba(139,92,246,.08);color:#a78bfa;border:1px solid rgba(139,92,246,.18)}
+.tag.gr{background:rgba(52,211,153,.08);color:var(--gn);border:1px solid rgba(52,211,153,.18)}
+
+/* ─── CADENCE ─── */
+.cc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:8px}
+.cf{font-family:'Sora',sans-serif;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:5px;width:fit-content}
+.cf.w{background:rgba(56,189,248,.08);color:var(--ac)}
+.cf.m{background:rgba(139,92,246,.08);color:#a78bfa}
+.cf.q{background:rgba(52,211,153,.08);color:var(--gn)}
+
+/* ─── METRIC ─── */
+.mg h3{font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.mi{font-size:14px;color:var(--dim);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.mi:last-child{border-bottom:none}
+
+/* ─── QUESTIONS ─── */
+.ql{display:grid;gap:24px;margin-top:32px}
+.qi{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start}
+.qn{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:20px;font-weight:800;background:var(--acg);border:1px solid var(--ac2);color:var(--ac)}
+.qt{font-size:19px;font-weight:400;line-height:1.4;padding-top:10px;letter-spacing:-.01em}
+
+/* ─── USE CASE SLIDE ─── */
+.uc-grid{display:grid;grid-template-columns:1fr 40px 1fr;gap:0;align-items:start;margin-top:18px}
+.uc-col{display:flex;flex-direction:column;gap:8px}
+.uc-arrow{display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--ac);padding-top:40px}
+.uc-lbl{font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;padding:4px 10px;border-radius:5px;width:fit-content}
+.uc-lbl.now{color:var(--rd);background:var(--rdg)}
+.uc-lbl.better{color:var(--gn);background:var(--gng)}
+.uc-item{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);padding:10px 14px;font-size:14px;color:var(--dim);transition:border-color .2s}
+.uc-item.strike{color:var(--mut);border-left:3px solid rgba(248,113,113,.3)}
+.uc-item.good{border-left:3px solid rgba(52,211,153,.3);color:var(--dim)}
+.uc-item .uc-tag{font-size:10px;color:var(--mut);margin-top:3px}
+
+/* ─── APPENDIX ─── */
+.meth{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.mc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:16px}
+.mc h3{font-family:'Sora',sans-serif;font-size:12px;font-weight:600;margin-bottom:8px}
+.ev{display:inline-block;font-size:10px;padding:3px 8px;border-radius:5px;margin-right:5px}
+.ev.ob{background:rgba(56,189,248,.08);color:var(--ac);border:1px solid rgba(56,189,248,.18)}
+.ev.in{background:rgba(251,191,36,.08);color:var(--am);border:1px solid rgba(251,191,36,.18)}
+.ev.as{background:rgba(139,92,246,.08);color:#a78bfa;border:1px solid rgba(139,92,246,.18)}
+
+/* ─── SVG CONTAINER ─── */
+.svgw{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;margin-top:12px}
+.svgw svg{max-width:100%;max-height:100%;height:auto}
+
+/* ─── NAV BAR ─── */
+.nb{display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:rgba(8,12,22,.9);border-top:1px solid var(--bd);backdrop-filter:blur(12px)}
+.nl{display:flex;align-items:center;gap:12px}
+.nc{font-family:'Sora',sans-serif;font-size:11px;color:var(--mut);font-weight:500;min-width:58px}
+.nt{font-size:11px;color:var(--mut);font-weight:400}
+.nd{display:flex;gap:6px}
+.dt{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.1);cursor:pointer;transition:all .3s}
+.dt.on{background:var(--ac);box-shadow:0 0 8px rgba(56,189,248,.45)}
+.dt.ap{border-radius:2px}
+.btns{display:flex;gap:8px}
+.btn{background:transparent;border:1px solid var(--bd);color:var(--dim);border-radius:6px;padding:6px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .2s}
+.btn:hover{border-color:var(--ac);color:var(--tx);background:var(--acg)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .s{padding:0 28px}
+  .g2,.g3,.rb,.meth{grid-template-columns:1fr}
+  .uc-grid{grid-template-columns:1fr}
+  .uc-arrow{display:none}
+  .stats{grid-template-columns:1fr 1fr}
+  .sr{grid-template-columns:100px 1fr 36px}
+  .sr-n{display:none}
+  .ph{grid-template-columns:64px 1fr}
+  h1{font-size:28px} h2{font-size:22px}
+}
+</style>
+  </head>
+  <body>
+    <main class="deck">
+      <section class="sc">
+        <!-- ═══ S1: TITLE ═══ -->
+        <article class="s on">
+          <div class="inner">
+            <div class="ki anim">
+              Growth Marketing Hypothesis &mdash; For Discussion
+            </div>
+            <h1 class="anim">The First 90 Days<br />at Boltline</h1>
+            <p class="sub anim">
+              What I found, where the opportunity is, and how I'd build the
+              demand engine from scratch.
+            </p>
+            <div class="stats anim">
+              <div class="st">
+                <div class="sv">$6M</div>
+                <div class="sl">
+                  Annual savings claimed<br />(Intuitive Machines)
+                </div>
+              </div>
+              <div class="st">
+                <div class="sv">99.9%</div>
+                <div class="sl">Inventory accuracy<br />(iSpace US)</div>
+              </div>
+              <div class="st">
+                <div class="sv">2x</div>
+                <div class="sl">Revenue growth<br />H1 FY2025</div>
+              </div>
+              <div class="st">
+                <div class="sv">0 &rarr; 1</div>
+                <div class="sl">First dedicated<br />demand-gen hire</div>
+              </div>
+            </div>
+            <div class="co anim">
+              Thesis: Boltline has exceptional product-market proof. The unlock
+              is converting that credibility into a repeatable pipeline &mdash;
+              not more random activity.
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S2: ROLE READBACK ═══ -->
+        <article class="s">
+          <div class="inner">
+            <div class="ki anim">Role Understanding</div>
+            <h2 class="anim">
+              This isn't a marketing hire &mdash; it's a GTM engineer
+            </h2>
+            <div class="rb anim">
+              <div style="display: flex; flex-direction: column; gap: 10px">
+                <div class="ri">
+                  <div class="ri-i">1</div>
+                  <div>
+                    <div class="ri-t">
+                      Build top-of-funnel strategy from scratch
+                    </div>
+                    <div class="ri-s">
+                      No existing demand-gen playbook &mdash; this role creates
+                      it
+                    </div>
+                  </div>
+                </div>
+                <div class="ri">
+                  <div class="ri-i">2</div>
+                  <div>
+                    <div class="ri-t">Execute multi-channel campaigns</div>
+                    <div class="ri-s">
+                      Content, SEO, LinkedIn, webinars, events &mdash; ship, not
+                      just plan
+                    </div>
+                  </div>
+                </div>
+                <div class="ri">
+                  <div class="ri-i">3</div>
+                  <div>
+                    <div class="ri-t">Own channel analytics and ROI</div>
+                    <div class="ri-s">
+                      Know what's working, cut what isn't, prove it with
+                      pipeline math
+                    </div>
+                  </div>
+                </div>
+                <div class="ri">
+                  <div class="ri-i">4</div>
+                  <div>
+                    <div class="ri-t">Tight cross-functional alignment</div>
+                    <div class="ri-s">
+                      Sales handoff, Product input, Stoke Space marketing
+                      coordination
+                    </div>
+                  </div>
+                </div>
+                <div class="ri">
+                  <div class="ri-i">5</div>
+                  <div>
+                    <div class="ri-t">
+                      Martech operations (HubSpot, GA, scoring)
+                    </div>
+                    <div class="ri-s">
+                      Instrument the funnel &mdash; lifecycle stages, capture,
+                      nurture
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="c" style="display: flex; flex-direction: column">
+                <h3 style="color: var(--ac); margin-bottom: 12px">
+                  What this tells me
+                </h3>
+                <ul>
+                  <li>
+                    You need a
+                    <strong style="color: var(--tx)">builder-operator</strong>,
+                    not a single-channel specialist
+                  </li>
+                  <li>
+                    Speed to execution matters &mdash; not a "strategize for 6
+                    months" role
+                  </li>
+                  <li>Sales partnership is core, not an afterthought</li>
+                  <li>Measurable pipeline outcomes, not activity metrics</li>
+                  <li>
+                    The Stoke Space relationship is a unique leverage point
+                  </li>
+                </ul>
+                <div class="co" style="margin-top: auto">
+                  This is the rest of the deck: what I found, what I'd do about
+                  it, and how I'd work with you to get there.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S3: KNOWN vs VALIDATE ═══ -->
+        <article class="s">
+          <div class="inner">
+            <div class="ki anim">Starting Point</div>
+            <h2 class="anim">Facts first, then structure the unknowns</h2>
+            <div class="g g2 anim">
+              <div class="c" style="border-left: 3px solid var(--gn)">
+                <h3 style="color: var(--gn)">What we know</h3>
+                <ul>
+                  <li>
+                    End-to-end traceability, no-code workflows, compliance,
+                    integrations
+                  </li>
+                  <li>
+                    Proven on mission-critical hardware &mdash; rockets, lunar
+                    landers, carbon capture
+                  </li>
+                  <li>
+                    Named logos: Intuitive Machines, iSpace US, True Anomaly,
+                    XCIMER, Seabound
+                  </li>
+                  <li>
+                    Current sweet spot: ~10-person engineering teams scaling
+                    hardware
+                  </li>
+                  <li>
+                    Origin story = competitive moat &mdash; "built for rockets,
+                    available for everyone"
+                  </li>
+                  <li>
+                    Woven Capital (Toyota) invested Dec 2024; 2x revenue H1
+                    FY2025
+                  </li>
+                </ul>
+              </div>
+              <div class="c" style="border-left: 3px solid var(--am)">
+                <h3 style="color: var(--am)">What I'd validate in Week 1</h3>
+                <ul>
+                  <li>
+                    ICP tiers: what does the jump from ~10 to ~100 person
+                    companies look like?
+                  </li>
+                  <li>
+                    Expansion path: when do IT, procurement, QA stakeholders
+                    enter the buying process?
+                  </li>
+                  <li>
+                    Current lead source mix and real stage-by-stage conversion
+                    data
+                  </li>
+                  <li>
+                    Top objections stalling or killing active deals right now
+                  </li>
+                  <li>
+                    Sales asset gaps &mdash; what do reps ask for that doesn't
+                    exist?
+                  </li>
+                  <li>
+                    HubSpot/analytics state: what's instrumented vs. dark?
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S4: PROPERTY SCORECARD ═══ -->
+        <article class="s">
+          <div class="inner">
+            <div class="ki anim">Property Audit</div>
+            <h2 class="anim">
+              Signal is strong. Conversion architecture is early.
+            </h2>
+            <p class="anim">
+              Scored from public-facing properties: boltline.com pages,
+              resources, demo flow, and tech stack indicators.
+            </p>
+            <div class="sc-list anim">
+              <div class="sr">
+                <span class="sr-l">Brand &amp; Positioning</span>
+                <div class="sr-b">
+                  <div class="sr-f" style="width: 70%"></div>
+                </div>
+                <span class="sr-n">Clear narrative, sharpen category</span
+                ><span class="sr-v">3.5</span>
+              </div>
+              <div class="sr">
+                <span class="sr-l">Proof Credibility</span>
+                <div class="sr-b">
+                  <div class="sr-f" style="width: 80%"></div>
+                </div>
+                <span class="sr-n">Case studies + logos strong</span
+                ><span class="sr-v">4.0</span>
+              </div>
+              <div class="sr">
+                <span class="sr-l">Content Depth</span>
+                <div class="sr-b">
+                  <div class="sr-f" style="width: 50%"></div>
+                </div>
+                <span class="sr-n">Low volume, no blog cadence</span
+                ><span class="sr-v">2.5</span>
+              </div>
+              <div class="sr">
+                <span class="sr-l">Conversion Design</span>
+                <div class="sr-b">
+                  <div class="sr-f" style="width: 60%"></div>
+                </div>
+                <span class="sr-n">Demo CTA only, single path</span
+                ><span class="sr-v">3.0</span>
+              </div>
+              <div class="sr">
+                <span class="sr-l">Sales Enablement</span>
+                <div class="sr-b">
+                  <div class="sr-f" style="width: 50%"></div>
+                </div>
+                <span class="sr-n">No persona-specific assets</span
+                ><span class="sr-v">2.5</span>
+              </div>
+              <div class="sr">
+                <span class="sr-l">Measurement</span>
+                <div class="sr-b">
+                  <div class="sr-f" style="width: 60%"></div>
+                </div>
+                <span class="sr-n">HubSpot + GA present, depth unknown</span
+                ><span class="sr-v">3.0</span>
+              </div>
+            </div>
+            <div class="co anim">
+              Strongest asset: credible proof in mission-critical contexts.
+              Biggest gap: converting that proof into multi-stage conversion
+              paths and persona-specific collateral.
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S5: WEBSITE TEARDOWN ═══ -->
+        <article class="s">
+          <div class="inner">
+            <div class="ki anim">Website Teardown</div>
+            <h2 class="anim">
+              boltline.com &mdash; what's working vs. what's leaving value on
+              the table
+            </h2>
+            <div class="g g2 anim">
+              <div class="c" style="border-left: 3px solid var(--gn)">
+                <h3 style="color: var(--gn)">Working well</h3>
+                <ul>
+                  <li>
+                    <strong style="color: var(--tx)"
+                      >5-step lifecycle visual</strong
+                    >
+                    (Design &rarr; Build &rarr; Test &rarr; Trace &rarr;
+                    Improve) &mdash; scannable, memorable
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Real photography</strong>
+                    of hardware and shop floor adds authenticity
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Clean nav</strong> &mdash;
+                    minimal header, clear primary paths
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)"
+                      >Modern visual brand</strong
+                    >
+                    &mdash; professional type, consistent spacing
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">"Why Boltline"</strong> has
+                    real competitive framing vs. PLM/MES/ERP
+                  </li>
+                </ul>
+              </div>
+              <div class="c" style="border-left: 3px solid var(--rd)">
+                <h3 style="color: var(--rd)">Opportunities</h3>
+                <ul>
+                  <li>
+                    <strong style="color: var(--tx)"
+                      >Hero CTA says "Learn more"</strong
+                    >
+                    &mdash; vague; should guide to demo or trial
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)"
+                      >Social proof buried</strong
+                    >
+                    &mdash; logos mid-scroll; move above fold
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)"
+                      >Text-heavy sections</strong
+                    >
+                    &mdash; benefit statements in prose, not bullets
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)"
+                      >Screenshots lack context</strong
+                    >
+                    &mdash; no labels, captions, or annotations
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)"
+                      >Single conversion path</strong
+                    >
+                    &mdash; "Book demo" only, no tiered offers
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="g g3 anim">
+              <div class="c">
+                <h3 style="color: var(--am); font-size: 12px">Readability</h3>
+                <p>
+                  "Engineering is a continuous process..." restates what the
+                  visual shows. Convert to bullets or cut.
+                </p>
+              </div>
+              <div class="c">
+                <h3 style="color: var(--am); font-size: 12px">Trust signals</h3>
+                <p>
+                  "Trusted by leaders" is generic. Add a quantified outcome next
+                  to each logo (e.g., "99.9% accuracy").
+                </p>
+              </div>
+              <div class="c">
+                <h3 style="color: var(--am); font-size: 12px">CTA strategy</h3>
+                <p>
+                  "Learn more," "Book a demo," "Contact us" &mdash; unify around
+                  one primary + one lower-commitment offer.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S6: USE CASES vs VERTICALS ═══ -->
+        <article class="s">
+          <div class="inner">
+            <div class="ki anim">Content Architecture</div>
+            <h2 class="anim">
+              "Use Cases" page lists industries, not jobs-to-be-done
+            </h2>
+            <p class="anim" style="max-width: 680px">
+              The current page answers <em>"who uses Boltline?"</em> but not
+              <em>"what problems does Boltline solve?"</em> &mdash; the question
+              buyers actually search for.
+            </p>
+            <div class="uc-grid anim">
+              <div class="uc-col">
+                <div class="uc-lbl now">What's there now</div>
+                <div class="uc-item strike">Space &amp; Defense</div>
+                <div class="uc-item strike">Medical &amp; Biotech</div>
+                <div class="uc-item strike">Advanced Manufacturing</div>
+                <div class="uc-item strike">Alternative Energy</div>
+                <div class="uc-item strike">Universities</div>
+                <div
+                  class="uc-item strike"
+                  style="color: var(--mut); font-style: italic"
+                >
+                  ...and many more
+                </div>
+              </div>
+              <div class="uc-arrow">&rarr;</div>
+              <div class="uc-col">
+                <div class="uc-lbl better">What buyers search for</div>
+                <div class="uc-item good">
+                  Managing BOMs from prototype to production
+                  <div class="uc-tag">SEO: "hardware BOM management"</div>
+                </div>
+                <div class="uc-item good">
+                  Tracking parts through test &amp; compliance
+                  <div class="uc-tag">SEO: "part traceability software"</div>
+                </div>
+                <div class="uc-item good">
+                  Replacing spreadsheet-based build travelers
+                  <div class="uc-tag">SEO: "digital work instructions"</div>
+                </div>
+                <div class="uc-item good">
+                  Preparing audit-ready records in hours
+                  <div class="uc-tag">SEO: "hardware audit trail"</div>
+                </div>
+                <div class="uc-item good">
+                  Unifying eng, supply chain &amp; manufacturing data
+                  <div class="uc-tag">SEO: "hardware lifecycle management"</div>
+                </div>
+              </div>
+            </div>
+            <div class="co anim">
+              Keep the industry pages as social proof &mdash; but add true
+              use-case pages that rank for buyer-intent keywords and convert
+              mid-funnel visitors. Each doubles as a landing page for campaigns.
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S7: FUNNEL ═══ -->
+        <article class="s">
+          <div
+            class="inner"
+            style="
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            "
+          >
+            <div class="ki anim">Funnel Diagnosis</div>
+            <h2 class="anim">Where the pipe narrows</h2>
+            <div class="svgw anim">
+              <svg
+                viewBox="0 0 780 380"
+                fill="none"
+                style="max-width: 780px; width: 100%"
+              >
+                <path
+                  d="M80 20 L460 20 L420 100 L120 100Z"
+                  fill="rgba(56,189,248,.08)"
+                  stroke="rgba(56,189,248,.35)"
+                />
+                <path
+                  d="M120 106 L420 106 L390 186 L150 186Z"
+                  fill="rgba(139,92,246,.08)"
+                  stroke="rgba(139,92,246,.35)"
+                />
+                <path
+                  d="M150 192 L390 192 L365 268 L175 268Z"
+                  fill="rgba(251,191,36,.08)"
+                  stroke="rgba(251,191,36,.35)"
+                />
+                <path
+                  d="M175 274 L365 274 L340 340 L200 340Z"
+                  fill="rgba(52,211,153,.08)"
+                  stroke="rgba(52,211,153,.35)"
+                />
+                <text
+                  x="270"
+                  y="68"
+                  fill="#38bdf8"
+                  font-size="14"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  AWARENESS
+                </text>
+                <text
+                  x="270"
+                  y="152"
+                  fill="#a78bfa"
+                  font-size="14"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  CONSIDERATION
+                </text>
+                <text
+                  x="270"
+                  y="237"
+                  fill="#fbbf24"
+                  font-size="14"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  CONVERSION
+                </text>
+                <text
+                  x="270"
+                  y="314"
+                  fill="#34d399"
+                  font-size="14"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  ENABLEMENT
+                </text>
+                <rect
+                  x="490"
+                  y="16"
+                  width="280"
+                  height="72"
+                  rx="8"
+                  fill="rgba(255,255,255,.02)"
+                  stroke="rgba(255,255,255,.08)"
+                />
+                <text
+                  x="504"
+                  y="38"
+                  fill="#eef2f7"
+                  font-size="12"
+                  font-weight="600"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Solid brand + modern visual identity
+                </text>
+                <text
+                  x="504"
+                  y="54"
+                  fill="#8494a7"
+                  font-size="11"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Gap: limited thought leadership volume
+                </text>
+                <text
+                  x="504"
+                  y="70"
+                  fill="#8494a7"
+                  font-size="11"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Gap: category still broad for first-time buyers
+                </text>
+                <rect
+                  x="490"
+                  y="102"
+                  width="280"
+                  height="72"
+                  rx="8"
+                  fill="rgba(255,255,255,.02)"
+                  stroke="rgba(255,255,255,.08)"
+                />
+                <text
+                  x="504"
+                  y="124"
+                  fill="#eef2f7"
+                  font-size="12"
+                  font-weight="600"
+                  font-family="DM Sans,sans-serif"
+                >
+                  "Why Boltline" + 2 detailed case studies
+                </text>
+                <text
+                  x="504"
+                  y="140"
+                  fill="#8494a7"
+                  font-size="11"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Gap: no ROI tools, security briefs, guides
+                </text>
+                <text
+                  x="504"
+                  y="156"
+                  fill="#8494a7"
+                  font-size="11"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Gap: no downloadable buyer assets
+                </text>
+                <rect
+                  x="490"
+                  y="188"
+                  width="280"
+                  height="72"
+                  rx="8"
+                  fill="rgba(255,255,255,.02)"
+                  stroke="rgba(255,255,255,.08)"
+                />
+                <text
+                  x="504"
+                  y="210"
+                  fill="#eef2f7"
+                  font-size="12"
+                  font-weight="600"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Clear demo CTA present across site
+                </text>
+                <text
+                  x="504"
+                  y="226"
+                  fill="#8494a7"
+                  font-size="11"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Gap: single path only ("Book demo")
+                </text>
+                <text
+                  x="504"
+                  y="242"
+                  fill="#8494a7"
+                  font-size="11"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Gap: no tiered offers by intent level
+                </text>
+                <rect
+                  x="490"
+                  y="270"
+                  width="280"
+                  height="72"
+                  rx="8"
+                  fill="rgba(255,255,255,.02)"
+                  stroke="rgba(255,255,255,.08)"
+                />
+                <text
+                  x="504"
+                  y="292"
+                  fill="#eef2f7"
+                  font-size="12"
+                  font-weight="600"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Strong proof points in case studies
+                </text>
+                <text
+                  x="504"
+                  y="308"
+                  fill="#8494a7"
+                  font-size="11"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Gap: no persona-specific objection handling
+                </text>
+                <text
+                  x="504"
+                  y="324"
+                  fill="#8494a7"
+                  font-size="11"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Gap: no reusable sales asset library
+                </text>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S8: ICP HYPOTHESIS ═══ -->
+        <article class="s">
+          <div class="inner">
+            <div class="ki anim">ICP Hypothesis</div>
+            <h2 class="anim">
+              The growth path: 10-person teams today, 100-person companies next
+            </h2>
+            <div class="g g2 anim">
+              <div class="c" style="border-top: 3px solid var(--gn)">
+                <h3 style="color: var(--gn)">
+                  Today's sweet spot (~10 person eng teams)
+                </h3>
+                <ul>
+                  <li>
+                    Engineering-led buying decision; champion is VP Eng or CTO
+                  </li>
+                  <li>
+                    Pain: spreadsheets break as they scale from prototype to
+                    production
+                  </li>
+                  <li>
+                    Value prop lands fast &mdash; traceability, speed, "deploys
+                    in days"
+                  </li>
+                  <li>Short sales cycle, single stakeholder approval</li>
+                  <li>
+                    Use case: "we outgrew spreadsheets and need real systems"
+                  </li>
+                </ul>
+                <p
+                  style="
+                    margin-top: 10px;
+                    color: var(--tx);
+                    font-weight: 600;
+                    font-size: 12px;
+                  "
+                >
+                  Marketing play: product-led content, direct eng persona
+                  messaging, case study proof
+                </p>
+              </div>
+              <div class="c" style="border-top: 3px solid var(--ac)">
+                <h3 style="color: var(--ac)">
+                  Growth target (~100 person companies)
+                </h3>
+                <ul>
+                  <li>
+                    Buying committee expands: IT, procurement, QA/compliance
+                    enter the process
+                  </li>
+                  <li>
+                    Longer cycle, more objection handling needed (security,
+                    integrations, ERP)
+                  </li>
+                  <li>
+                    Multi-department value: not just eng, but supply chain,
+                    manufacturing ops
+                  </li>
+                  <li>
+                    Compliance and audit requirements become non-negotiable
+                  </li>
+                  <li>
+                    Use case: "we need one system across teams, not
+                    tool-per-team chaos"
+                  </li>
+                </ul>
+                <p
+                  style="
+                    margin-top: 10px;
+                    color: var(--tx);
+                    font-weight: 600;
+                    font-size: 12px;
+                  "
+                >
+                  Marketing play: persona-specific assets, security/compliance
+                  collateral, ROI models, multi-stakeholder nurture
+                </p>
+              </div>
+            </div>
+            <div class="co anim">
+              Near-term: double down on engineering-led messaging that converts
+              10-person teams fast. In parallel: build the collateral stack for
+              the 100-person motion so Sales isn't caught empty-handed as deals
+              get bigger.
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S9: PRIORITY MATRIX ═══ -->
+        <article class="s">
+          <div
+            class="inner"
+            style="
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            "
+          >
+            <div class="ki anim">Focus Hypothesis</div>
+            <h2 class="anim">Where to place the first bets</h2>
+            <div class="svgw anim">
+              <svg
+                viewBox="0 0 700 420"
+                fill="none"
+                style="max-width: 700px; width: 100%"
+              >
+                <line
+                  x1="90"
+                  y1="30"
+                  x2="90"
+                  y2="380"
+                  stroke="rgba(255,255,255,.08)"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="90"
+                  y1="380"
+                  x2="680"
+                  y2="380"
+                  stroke="rgba(255,255,255,.08)"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="90"
+                  y1="205"
+                  x2="680"
+                  y2="205"
+                  stroke="rgba(255,255,255,.04)"
+                  stroke-width=".5"
+                  stroke-dasharray="4,4"
+                />
+                <line
+                  x1="385"
+                  y1="30"
+                  x2="385"
+                  y2="380"
+                  stroke="rgba(255,255,255,.04)"
+                  stroke-width=".5"
+                  stroke-dasharray="4,4"
+                />
+                <text
+                  x="385"
+                  y="408"
+                  fill="#8494a7"
+                  font-size="12"
+                  text-anchor="middle"
+                  font-weight="600"
+                  font-family="Sora,sans-serif"
+                >
+                  EFFORT
+                </text>
+                <text
+                  x="110"
+                  y="408"
+                  fill="#6b7d94"
+                  font-size="10"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Low
+                </text>
+                <text
+                  x="660"
+                  y="408"
+                  fill="#6b7d94"
+                  font-size="10"
+                  font-family="DM Sans,sans-serif"
+                >
+                  High
+                </text>
+                <text
+                  x="36"
+                  y="208"
+                  fill="#8494a7"
+                  font-size="12"
+                  text-anchor="middle"
+                  font-weight="600"
+                  transform="rotate(-90,36,208)"
+                  font-family="Sora,sans-serif"
+                >
+                  IMPACT
+                </text>
+                <text
+                  x="237"
+                  y="56"
+                  fill="rgba(255,255,255,.15)"
+                  font-size="20"
+                  font-weight="800"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  DO FIRST
+                </text>
+                <text
+                  x="532"
+                  y="56"
+                  fill="rgba(255,255,255,.15)"
+                  font-size="20"
+                  font-weight="800"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  PLAN FOR
+                </text>
+                <text
+                  x="237"
+                  y="365"
+                  fill="rgba(255,255,255,.15)"
+                  font-size="20"
+                  font-weight="800"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  OPPORTUNISTIC
+                </text>
+                <text
+                  x="532"
+                  y="365"
+                  fill="rgba(255,255,255,.15)"
+                  font-size="20"
+                  font-weight="800"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  DEFER
+                </text>
+                <circle
+                  cx="200"
+                  cy="100"
+                  r="50"
+                  fill="rgba(52,211,153,.1)"
+                  stroke="rgba(52,211,153,.4)"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="200"
+                  y="96"
+                  fill="#34d399"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Case Study
+                </text>
+                <text
+                  x="200"
+                  y="110"
+                  fill="#34d399"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Atomization
+                </text>
+                <circle
+                  cx="305"
+                  cy="120"
+                  r="44"
+                  fill="rgba(56,189,248,.1)"
+                  stroke="rgba(56,189,248,.4)"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="305"
+                  y="116"
+                  fill="#38bdf8"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  ICP + Message
+                </text>
+                <text
+                  x="305"
+                  y="130"
+                  fill="#38bdf8"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Architecture
+                </text>
+                <circle
+                  cx="180"
+                  cy="185"
+                  r="38"
+                  fill="rgba(251,191,36,.1)"
+                  stroke="rgba(251,191,36,.4)"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="180"
+                  y="181"
+                  fill="#fbbf24"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Mid-Funnel
+                </text>
+                <text
+                  x="180"
+                  y="195"
+                  fill="#fbbf24"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Assets
+                </text>
+                <circle
+                  cx="440"
+                  cy="155"
+                  r="42"
+                  fill="rgba(139,92,246,.1)"
+                  stroke="rgba(139,92,246,.4)"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="440"
+                  y="151"
+                  fill="#a78bfa"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Lead Scoring
+                </text>
+                <text
+                  x="440"
+                  y="165"
+                  fill="#a78bfa"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  + Routing
+                </text>
+                <circle
+                  cx="530"
+                  cy="110"
+                  r="44"
+                  fill="rgba(56,189,248,.1)"
+                  stroke="rgba(56,189,248,.4)"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="530"
+                  y="106"
+                  fill="#38bdf8"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Vertical
+                </text>
+                <text
+                  x="530"
+                  y="120"
+                  fill="#38bdf8"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Landing Pages
+                </text>
+                <circle
+                  cx="580"
+                  cy="300"
+                  r="42"
+                  fill="rgba(248,113,113,.07)"
+                  stroke="rgba(248,113,113,.3)"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="580"
+                  y="296"
+                  fill="#f87171"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  New Channels
+                </text>
+                <text
+                  x="580"
+                  y="310"
+                  fill="#f87171"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Before Baseline
+                </text>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S10: SYSTEM DESIGN ═══ -->
+        <article class="s">
+          <div
+            class="inner"
+            style="
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            "
+          >
+            <div class="ki anim">System Design</div>
+            <h2 class="anim">A compounding loop, not one-off campaigns</h2>
+            <div class="svgw anim">
+              <svg
+                viewBox="0 0 700 390"
+                fill="none"
+                style="max-width: 700px; width: 100%"
+              >
+                <defs>
+                  <marker
+                    id="a"
+                    markerWidth="8"
+                    markerHeight="6"
+                    refX="8"
+                    refY="3"
+                    orient="auto"
+                  >
+                    <path d="M0 0L8 3L0 6" fill="#475569" />
+                  </marker>
+                </defs>
+                <circle
+                  cx="350"
+                  cy="195"
+                  r="55"
+                  fill="rgba(255,255,255,.02)"
+                  stroke="rgba(56,189,248,.4)"
+                  stroke-width="2"
+                />
+                <text
+                  x="350"
+                  y="189"
+                  fill="#38bdf8"
+                  font-size="13"
+                  font-weight="800"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  PIPELINE
+                </text>
+                <text
+                  x="350"
+                  y="206"
+                  fill="#38bdf8"
+                  font-size="13"
+                  font-weight="800"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  ENGINE
+                </text>
+                <rect
+                  x="135"
+                  y="40"
+                  width="140"
+                  height="68"
+                  rx="10"
+                  fill="rgba(52,211,153,.05)"
+                  stroke="rgba(52,211,153,.35)"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="205"
+                  y="69"
+                  fill="#34d399"
+                  font-size="13"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Customer Proof
+                </text>
+                <text
+                  x="205"
+                  y="86"
+                  fill="#b0bece"
+                  font-size="11"
+                  text-anchor="middle"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Case studies + outcomes
+                </text>
+                <rect
+                  x="425"
+                  y="40"
+                  width="140"
+                  height="68"
+                  rx="10"
+                  fill="rgba(139,92,246,.05)"
+                  stroke="rgba(139,92,246,.35)"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="495"
+                  y="69"
+                  fill="#a78bfa"
+                  font-size="13"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Asset Stack
+                </text>
+                <text
+                  x="495"
+                  y="86"
+                  fill="#b0bece"
+                  font-size="11"
+                  text-anchor="middle"
+                  font-family="DM Sans,sans-serif"
+                >
+                  LP + brief + webinar
+                </text>
+                <rect
+                  x="530"
+                  y="158"
+                  width="140"
+                  height="68"
+                  rx="10"
+                  fill="rgba(56,189,248,.05)"
+                  stroke="rgba(56,189,248,.35)"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="600"
+                  y="187"
+                  fill="#38bdf8"
+                  font-size="13"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Channels
+                </text>
+                <text
+                  x="600"
+                  y="204"
+                  fill="#b0bece"
+                  font-size="11"
+                  text-anchor="middle"
+                  font-family="DM Sans,sans-serif"
+                >
+                  LinkedIn + SEO + events
+                </text>
+                <rect
+                  x="425"
+                  y="278"
+                  width="140"
+                  height="68"
+                  rx="10"
+                  fill="rgba(251,191,36,.05)"
+                  stroke="rgba(251,191,36,.35)"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="495"
+                  y="307"
+                  fill="#fbbf24"
+                  font-size="13"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Intent Capture
+                </text>
+                <text
+                  x="495"
+                  y="324"
+                  fill="#b0bece"
+                  font-size="11"
+                  text-anchor="middle"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Demo + ROI + guide
+                </text>
+                <rect
+                  x="135"
+                  y="278"
+                  width="140"
+                  height="68"
+                  rx="10"
+                  fill="rgba(248,113,113,.05)"
+                  stroke="rgba(248,113,113,.35)"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="205"
+                  y="307"
+                  fill="#f87171"
+                  font-size="13"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Sales Feedback
+                </text>
+                <text
+                  x="205"
+                  y="324"
+                  fill="#b0bece"
+                  font-size="11"
+                  text-anchor="middle"
+                  font-family="DM Sans,sans-serif"
+                >
+                  Objections + win/loss
+                </text>
+                <rect
+                  x="25"
+                  y="158"
+                  width="140"
+                  height="68"
+                  rx="10"
+                  fill="rgba(52,211,153,.05)"
+                  stroke="rgba(52,211,153,.35)"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="95"
+                  y="187"
+                  fill="#34d399"
+                  font-size="13"
+                  font-weight="700"
+                  text-anchor="middle"
+                  font-family="Sora,sans-serif"
+                >
+                  Lead Model
+                </text>
+                <text
+                  x="95"
+                  y="204"
+                  fill="#b0bece"
+                  font-size="11"
+                  text-anchor="middle"
+                  font-family="DM Sans,sans-serif"
+                >
+                  MQL/SQL + scoring
+                </text>
+                <path
+                  d="M275 68L425 68"
+                  stroke="#475569"
+                  stroke-width="1.5"
+                  marker-end="url(#a)"
+                />
+                <path
+                  d="M552 108L575 158"
+                  stroke="#475569"
+                  stroke-width="1.5"
+                  marker-end="url(#a)"
+                />
+                <path
+                  d="M575 226L552 278"
+                  stroke="#475569"
+                  stroke-width="1.5"
+                  marker-end="url(#a)"
+                />
+                <path
+                  d="M425 312L275 312"
+                  stroke="#475569"
+                  stroke-width="1.5"
+                  marker-end="url(#a)"
+                />
+                <path
+                  d="M148 278L118 226"
+                  stroke="#475569"
+                  stroke-width="1.5"
+                  marker-end="url(#a)"
+                />
+                <path
+                  d="M118 158L148 108"
+                  stroke="#475569"
+                  stroke-width="1.5"
+                  marker-end="url(#a)"
+                />
+              </svg>
+            </div>
+            <div class="co anim">
+              Each customer win feeds the next campaign. Every sales call
+              surfaces the next content idea. The system compounds.
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S11: 30/60/90 ═══ -->
+        <article class="s">
+          <div class="inner">
+            <div class="ki anim">Execution Roadmap</div>
+            <h2 class="anim">
+              30 / 60 / 90 &mdash; concrete outputs at each gate
+            </h2>
+            <div class="tl anim">
+              <div class="ph">
+                <div class="ph-l" style="background: rgba(139, 92, 246, 0.04)">
+                  <span class="ph-d" style="color: var(--pu)">30</span
+                  ><span class="ph-s">days</span>
+                </div>
+                <div class="ph-c">
+                  <div class="ph-t">Foundation &amp; Alignment</div>
+                  <div class="ph-desc">
+                    Listen, learn, instrument. No campaigns yet &mdash; get the
+                    fundamentals right.
+                  </div>
+                  <div class="tags">
+                    <span class="tag pr">ICP tier map</span
+                    ><span class="tag pr">Messaging hierarchy</span
+                    ><span class="tag pr">Lead stage definitions + SLA</span
+                    ><span class="tag pr">HubSpot audit</span
+                    ><span class="tag pr">Sales asset gap analysis</span
+                    ><span class="tag pr">Weekly revenue pod</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ph">
+                <div class="ph-l" style="background: rgba(56, 189, 248, 0.04)">
+                  <span class="ph-d" style="color: var(--ac)">60</span
+                  ><span class="ph-s">days</span>
+                </div>
+                <div class="ph-c">
+                  <div class="ph-t">First Campaign + Instrumentation</div>
+                  <div class="ph-desc">
+                    Ship one proof-led integrated campaign. Stand up the
+                    measurement system.
+                  </div>
+                  <div class="tags">
+                    <span class="tag bl">1 proof-led campaign live</span
+                    ><span class="tag bl">Pipeline dashboard</span
+                    ><span class="tag bl">2-3 mid-funnel assets</span
+                    ><span class="tag bl">LinkedIn organic + paid</span
+                    ><span class="tag bl"
+                      >SEO cluster for priority vertical</span
+                    ><span class="tag bl">Events strategy / playbook</span
+                    ><span class="tag bl">Lead magnet test pages</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ph">
+                <div class="ph-l" style="background: rgba(52, 211, 153, 0.04)">
+                  <span class="ph-d" style="color: var(--gn)">90</span
+                  ><span class="ph-s">days</span>
+                </div>
+                <div class="ph-c">
+                  <div class="ph-t">Optimize, Prove, Scale</div>
+                  <div class="ph-desc">
+                    Show what's working. Double down or cut. Present Q2 roadmap
+                    with evidence.
+                  </div>
+                  <div class="tags">
+                    <span class="tag gr">Channel ROI scorecard</span
+                    ><span class="tag gr">Content calendar by vertical</span
+                    ><span class="tag gr">Pipeline impact report</span
+                    ><span class="tag gr">Double down / cut playbook</span
+                    ><span class="tag gr">Q2 roadmap</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S12: SALES PARTNERSHIP ═══ -->
+        <article class="s">
+          <div class="inner">
+            <div class="ki anim">Sales Alignment</div>
+            <h2 class="anim">How I'd partner with you</h2>
+            <p class="anim">
+              Marketing that works starts with a tight feedback loop &mdash; not
+              a handoff wall.
+            </p>
+            <div class="g g3 anim">
+              <div class="cc">
+                <span class="cf w">Weekly</span>
+                <h3>Revenue Pod</h3>
+                <ul>
+                  <li>Lead volume + quality check</li>
+                  <li>Speed-to-follow-up review</li>
+                  <li>Live deal objection signals</li>
+                  <li>Asset requests from reps</li>
+                </ul>
+              </div>
+              <div class="cc">
+                <span class="cf m">Monthly</span>
+                <h3>Pipeline Review</h3>
+                <ul>
+                  <li>Source-to-stage conversion</li>
+                  <li>Win/loss pattern analysis</li>
+                  <li>Channel ROI trends</li>
+                  <li>Campaign contribution audit</li>
+                </ul>
+              </div>
+              <div class="cc">
+                <span class="cf q">Quarterly</span>
+                <h3>Strategy Reset</h3>
+                <ul>
+                  <li>ICP segment performance</li>
+                  <li>Budget reallocation by evidence</li>
+                  <li>Content system expansion</li>
+                  <li>Next-quarter campaign themes</li>
+                </ul>
+              </div>
+            </div>
+            <div class="co pu anim" style="margin-top: 24px">
+              Core principle: shared definitions, shared dashboard, shared
+              accountability. No black-box marketing.
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S13: METRICS ═══ -->
+        <article class="s">
+          <div class="inner">
+            <div class="ki anim">Scorecard</div>
+            <h2 class="anim">What I'd measure from day one</h2>
+            <div class="g g3 anim" style="margin-top: 24px">
+              <div class="c mg">
+                <h3 style="color: var(--ac)">Leading Indicators</h3>
+                <div class="mi">Qualified demo requests by ICP</div>
+                <div class="mi">Landing page conversion by offer</div>
+                <div class="mi">Webinar/event to meeting rate</div>
+                <div class="mi">Organic rank for intent keywords</div>
+              </div>
+              <div class="c mg">
+                <h3 style="color: var(--pu)">Pipeline Indicators</h3>
+                <div class="mi">MQL &rarr; SQL conversion rate</div>
+                <div class="mi">SQL acceptance by Sales</div>
+                <div class="mi">Pipeline sourced + influenced</div>
+                <div class="mi">CAC proxy by channel (trend)</div>
+              </div>
+              <div class="c mg">
+                <h3 style="color: var(--gn)">Quality Indicators</h3>
+                <div class="mi">Win rate (marketing-sourced)</div>
+                <div class="mi">Sales cycle length trend</div>
+                <div class="mi">"No decision" root causes</div>
+                <div class="mi">Top disqualification reasons</div>
+              </div>
+            </div>
+            <div class="co anim" style="margin-top: 24px">
+              Philosophy: measure pipeline quality, not vanity volume. Every
+              metric has an owner and a review cadence.
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S14: RISKS ═══ -->
+        <article class="s">
+          <div class="inner">
+            <div class="ki anim">Risks I'd Get Ahead Of</div>
+            <h2 class="anim">Likely failure modes and how I'd prevent them</h2>
+            <div class="g g3 anim" style="margin-top: 24px">
+              <div class="c" style="border-top: 3px solid var(--rd)">
+                <h3 style="color: var(--rd)">Diffuse ICP</h3>
+                <p>5 verticals at once weakens narrative and dilutes spend.</p>
+                <p style="color: var(--tx); font-weight: 600; margin-top: 10px">
+                  Mitigation: Tier ICPs. Win one segment loudly before
+                  expanding.
+                </p>
+              </div>
+              <div class="c" style="border-top: 3px solid var(--am)">
+                <h3 style="color: var(--am)">Activity without Attribution</h3>
+                <p>
+                  Lead volume rises but nobody knows which effort drove
+                  pipeline.
+                </p>
+                <p style="color: var(--tx); font-weight: 600; margin-top: 10px">
+                  Mitigation: Lifecycle definitions + source taxonomy before any
+                  campaign launches.
+                </p>
+              </div>
+              <div class="c" style="border-top: 3px solid var(--pu)">
+                <h3 style="color: var(--pu)">Sales / Marketing Drift</h3>
+                <p>Leads get disputed, feedback loop breaks, trust erodes.</p>
+                <p style="color: var(--tx); font-weight: 600; margin-top: 10px">
+                  Mitigation: Weekly joint review + shared dashboard + explicit
+                  SLA from day one.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S15: DISCUSSION ═══ -->
+        <article class="s">
+          <div class="inner">
+            <div class="ki anim">Let's Discuss</div>
+            <h2 class="anim">
+              Three decisions that unlock immediate execution
+            </h2>
+            <div class="ql anim">
+              <div class="qi">
+                <div class="qn">1</div>
+                <div class="qt">
+                  As you move from ~10 to ~100 person companies, which vertical
+                  should we lead with?
+                </div>
+              </div>
+              <div class="qi">
+                <div class="qn">2</div>
+                <div class="qt">
+                  What is the one non-negotiable pipeline outcome for this role
+                  in H1?
+                </div>
+              </div>
+              <div class="qi">
+                <div class="qn">3</div>
+                <div class="qt">
+                  What lead-quality threshold does Sales need to scale spend
+                  confidently?
+                </div>
+              </div>
+            </div>
+            <div class="co anim" style="margin-top: 32px">
+              The goal: a repeatable motion that consistently hands Sales better
+              opportunities, faster &mdash; and proves it with numbers every
+              week.
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ S16: APPENDIX ═══ -->
+        <article class="s" data-appendix="true">
+          <div class="inner">
+            <div class="ki anim">Appendix &mdash; Methodology</div>
+            <h2 class="anim">How I arrived at these conclusions</h2>
+            <p class="anim">
+              Based entirely on publicly available information + one
+              conversation with the VP. Conclusions labeled by evidence type.
+            </p>
+            <div class="meth anim">
+              <div class="mc">
+                <h3>Sources reviewed</h3>
+                <ul>
+                  <li>boltline.com &mdash; all pages, sitemap, WP API</li>
+                  <li>2 case studies (Intuitive Machines, iSpace US)</li>
+                  <li>Stoke Space careers + Greenhouse API</li>
+                  <li>BusinessWire rebrand announcement (Aug 2025)</li>
+                  <li>Woven Capital investment coverage (Dec 2024)</li>
+                  <li>PLM market reports (Mordor Intelligence)</li>
+                </ul>
+              </div>
+              <div class="mc">
+                <h3>Audit dimensions</h3>
+                <ul>
+                  <li>Site structure &amp; navigation (page map, CTAs)</li>
+                  <li>Tech stack (WordPress, Yoast SEO, HubSpot)</li>
+                  <li>Content depth &amp; cadence (resource center)</li>
+                  <li>Conversion architecture (offers, forms, paths)</li>
+                  <li>Competitive positioning (PLM/MES/ERP claims)</li>
+                  <li>Sales enablement maturity (collateral, assets)</li>
+                </ul>
+              </div>
+              <div class="mc">
+                <h3>Evidence types</h3>
+                <div style="margin-top: 8px">
+                  <span class="ev ob">Observed</span>
+                  <span style="font-size: 11px; color: var(--dim)"
+                    >Directly visible on public properties</span
+                  >
+                </div>
+                <div style="margin-top: 8px">
+                  <span class="ev in">Inferred</span>
+                  <span style="font-size: 11px; color: var(--dim)"
+                    >Conclusion from multiple signals</span
+                  >
+                </div>
+                <div style="margin-top: 8px">
+                  <span class="ev as">Assumption</span>
+                  <span style="font-size: 11px; color: var(--dim)"
+                    >Needs internal validation</span
+                  >
+                </div>
+                <p style="margin-top: 12px; font-size: 12px">
+                  Scorecard ratings and priority placements are
+                  <span class="ev in">inferred</span>. Internal data would
+                  change these.
+                </p>
+              </div>
+              <div class="mc">
+                <h3>What changes with internal data</h3>
+                <ul>
+                  <li>ICP priority &mdash; revenue data re-ranks segments</li>
+                  <li>Scorecard &mdash; HubSpot/GA data may shift scores</li>
+                  <li>Priority matrix &mdash; effort needs capacity context</li>
+                  <li>30/60/90 &mdash; existing work may cover some items</li>
+                  <li>Risk weighting &mdash; some may already be mitigated</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ═══ NAV ═══ -->
+      <nav class="nb">
+        <div class="nl">
+          <span class="nc" id="ctr">1 / 16</span
+          ><span class="nt" id="ttl"></span>
+        </div>
+        <div class="nd" id="dots"></div>
+        <div class="btns">
+          <button class="btn" id="pv">&larr; Prev</button
+          ><button class="btn" id="nx">Next &rarr;</button>
+        </div>
+      </nav>
+    </main>
+    <!-- prettier-ignore -->
+    <script>
+const S=Array.from(document.querySelectorAll('.s')),C=document.getElementById('ctr'),T=document.getElementById('ttl'),D=document.getElementById('dots'),P=document.getElementById('pv'),N=document.getElementById('nx');
+let cur=0;
+const titles=['','Role Readback','Known vs. Unknown','Property Audit','Website Teardown','Use Cases','Funnel Diagnosis','ICP Hypothesis','Priority Matrix','System Design','30/60/90 Roadmap','Sales Partnership','Metrics','Risks','Discussion','Appendix'];
+S.forEach((s,i)=>{const d=document.createElement('div');d.className='dt'+(i===0?' on':'')+(s.dataset.appendix?' ap':'');d.onclick=()=>go(i);D.appendChild(d)});
+function go(i){if(i===cur||i<0||i>=S.length)return;const p=S[cur],n=S[i],fwd=i>cur;p.classList.remove('on');p.classList.add('out');n.style.transform=fwd?'translateX(24px)':'translateX(-24px)';n.style.opacity='0';n.classList.add('on');requestAnimationFrame(()=>requestAnimationFrame(()=>{n.style.transform='none';n.style.opacity='1'}));setTimeout(()=>{p.classList.remove('out');p.style.transform='';p.style.opacity=''},400);cur=i;ui()}
+function ui(){const main=S.filter(s=>!s.dataset.appendix).length;const isA=S[cur].dataset.appendix;C.textContent=isA?'Appendix':`${cur+1} / ${main}`;T.textContent=titles[cur]||'';document.querySelectorAll('.dt').forEach((d,i)=>d.classList.toggle('on',i===cur))}
+ui();P.onclick=()=>go(cur-1);N.onclick=()=>go(cur+1);
+document.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(cur+1)}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(cur-1)}if(e.key==='Home'){e.preventDefault();go(0)}if(e.key==='End'){e.preventDefault();go(S.length-1)}};
+let tx=0;document.ontouchstart=e=>{tx=e.touches[0].clientX};document.ontouchend=e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(cur+(d<0?1:-1))};
+</script>
+  </body>
+</html>
