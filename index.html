@@ -153,7 +153,9 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 
 /* ─── KPI TABLE ─── */
 .kpi-table{display:grid;gap:0}
-.kpi-row{display:grid;grid-template-columns:1.2fr 1fr 1fr;border:1px solid var(--bd);border-bottom:none;background:var(--sf)}
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));border:1px solid var(--bd);border-bottom:none;background:var(--sf)}
+.kpi-row:has(:nth-child(3):last-child){grid-template-columns:1.2fr 1fr 1fr}
+.kpi-row:has(:nth-child(4):last-child){grid-template-columns:1.2fr 1fr 1fr 1fr}
 .kpi-row:last-child{border-bottom:1px solid var(--bd);border-radius:0 0 var(--r) var(--r)}
 .kpi-row.kpi-head{background:var(--sf2);border-radius:var(--r) var(--r) 0 0}
 .kpi-row.kpi-head div{font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
@@ -526,10 +528,10 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   </li>
                   <li>
                     <strong style="color: var(--tx)"
-                      >Case studies are PDF-only</strong
+                      >Case studies exist, but are under-leveraged</strong
                     >
-                    &mdash; not indexed, not shareable, can't rank; should be
-                    web pages with CTAs
+                    &mdash; web case studies are live, but still limited in count
+                    and not fully connected to dedicated conversion paths/CTAs
                   </li>
                   <li>
                     <strong style="color: var(--tx)"
@@ -1171,7 +1173,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   text-anchor="middle"
                   font-family="Sora,sans-serif"
                 >
-                  10x
+                  Days
                 </text>
                 <text
                   x="822"
@@ -1181,7 +1183,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   text-anchor="middle"
                   font-family="DM Sans,sans-serif"
                 >
-                  faster onboarding
+                  to deploy, not months
                 </text>
                 <rect
                   x="536"
@@ -2630,6 +2632,716 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
             </div>
           </div>
         </article>
+        <!-- ═══ APPENDIX: BATTLE CARD ═══ -->
+        <article class="s" data-appendix="true">
+          <div class="inner">
+            <div class="ki anim">Appendix &mdash; Sales Enablement</div>
+            <h2 class="anim">Battle Card: Boltline vs. Alternatives</h2>
+            <div class="g g2 anim" style="margin-top: 14px; gap: 10px">
+              <div style="grid-column: 1/-1">
+                <div class="kpi-table">
+                  <div class="kpi-row kpi-head">
+                    <div class="kpi-metric">Dimension</div>
+                    <div class="kpi-base">Legacy PLM (Arena, Windchill)</div>
+                    <div class="kpi-target">Spreadsheets / Docs</div>
+                    <div
+                      style="
+                        padding: 10px 16px;
+                        font-family: &quot;Sora&quot;, sans-serif;
+                        font-size: 10px;
+                        font-weight: 600;
+                        letter-spacing: 0.1em;
+                        text-transform: uppercase;
+                        color: var(--mut);
+                        border-right: none;
+                      "
+                    >
+                      Boltline
+                    </div>
+                  </div>
+                  <div class="kpi-row">
+                    <div class="kpi-metric">Time to deploy</div>
+                    <div>6-18 months</div>
+                    <div>Instant (no structure)</div>
+                    <div style="color: var(--gn); border-right: none">
+                      Days to weeks
+                    </div>
+                  </div>
+                  <div class="kpi-row">
+                    <div class="kpi-metric">Built for hardware?</div>
+                    <div>Adapted from software PLM</div>
+                    <div>Generic &mdash; no data model</div>
+                    <div style="color: var(--gn); border-right: none">
+                      Purpose-built for hardware teams
+                    </div>
+                  </div>
+                  <div class="kpi-row">
+                    <div class="kpi-metric">Traceability</div>
+                    <div>Requires customization</div>
+                    <div><span class="kpi-unk">None</span></div>
+                    <div style="color: var(--gn); border-right: none">
+                      End-to-end, out of the box
+                    </div>
+                  </div>
+                  <div class="kpi-row">
+                    <div class="kpi-metric">Compliance readiness</div>
+                    <div>Manual audit prep</div>
+                    <div><span class="kpi-unk">Not auditable</span></div>
+                    <div style="color: var(--gn); border-right: none">
+                      Audit-ready records in hours
+                    </div>
+                  </div>
+                  <div class="kpi-row">
+                    <div class="kpi-metric">Team adoption</div>
+                    <div>Training-heavy, low adoption</div>
+                    <div>Everyone uses it (no governance)</div>
+                    <div style="color: var(--gn); border-right: none">
+                      No-code workflows, fast onboarding
+                    </div>
+                  </div>
+                  <div class="kpi-row">
+                    <div class="kpi-metric">Cost model</div>
+                    <div>$100K+ per year + implementation</div>
+                    <div>Free (hidden cost: errors)</div>
+                    <div style="color: var(--gn); border-right: none">
+                      SaaS pricing, scales with team
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="g g3 anim" style="margin-top: 12px">
+              <div class="c" style="border-top: 2px solid var(--rd)">
+                <h3 style="color: var(--rd); font-size: 11px">Top Objection</h3>
+                <p style="font-size: 13px">"We already have a PLM system."</p>
+                <p
+                  style="
+                    font-size: 12px;
+                    color: var(--tx);
+                    font-weight: 500;
+                    margin-top: 6px;
+                  "
+                >
+                  Response: "How long did it take to deploy? How much of your
+                  team actually uses it daily? Boltline is live in days and
+                  adopted by the whole team &mdash; not just the admin."
+                </p>
+              </div>
+              <div class="c" style="border-top: 2px solid var(--am)">
+                <h3 style="color: var(--am); font-size: 11px">Top Objection</h3>
+                <p style="font-size: 13px">"Spreadsheets work fine for us."</p>
+                <p
+                  style="
+                    font-size: 12px;
+                    color: var(--tx);
+                    font-weight: 500;
+                    margin-top: 6px;
+                  "
+                >
+                  Response: "They work until your first audit, your first
+                  misbuilt part, or your first customer asking for full
+                  traceability. What does that cost?"
+                </p>
+              </div>
+              <div class="c" style="border-top: 2px solid var(--pu)">
+                <h3 style="color: var(--pu); font-size: 11px">Top Objection</h3>
+                <p style="font-size: 13px">"We're too small for this."</p>
+                <p
+                  style="
+                    font-size: 12px;
+                    color: var(--tx);
+                    font-weight: 500;
+                    margin-top: 6px;
+                  "
+                >
+                  Response: "Boltline was built for 10-person teams scaling
+                  hardware. The earlier you build traceable processes, the less
+                  rework when you grow."
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ APPENDIX: LEAD MAGNET ═══ -->
+        <article class="s" data-appendix="true">
+          <div class="inner">
+            <div class="ki anim">Appendix &mdash; Lead Magnet Draft</div>
+            <h2 class="anim">The Hardware Traceability Checklist</h2>
+            <p class="anim" style="max-width: 680px">
+              A mid-funnel offer for buyers not ready to book a demo. Captures
+              email, qualifies intent, and opens a nurture sequence.
+            </p>
+            <div class="g g2 anim" style="margin-top: 16px">
+              <div class="c" style="border-left: 3px solid var(--ac)">
+                <h3 style="color: var(--ac); font-size: 13px">
+                  12 Questions Before You Outgrow Spreadsheets
+                </h3>
+                <ul style="font-size: 13px">
+                  <li>
+                    Can you trace every part back to its source material and
+                    supplier?
+                  </li>
+                  <li>
+                    Do you know which build revision is installed in every
+                    shipped unit?
+                  </li>
+                  <li>
+                    Could you produce a complete audit trail in under 24 hours?
+                  </li>
+                  <li>
+                    Do engineering changes automatically propagate to the shop
+                    floor?
+                  </li>
+                  <li>
+                    Is your BOM the single source of truth &mdash; or does
+                    everyone have a local copy?
+                  </li>
+                  <li>
+                    Can a new engineer find the latest work instructions without
+                    asking someone?
+                  </li>
+                </ul>
+              </div>
+              <div class="c" style="border-left: 3px solid var(--pu)">
+                <h3 style="color: var(--pu); font-size: 13px">
+                  12 Questions (continued)
+                </h3>
+                <ul style="font-size: 13px">
+                  <li>
+                    Do you know the real cost of a misbuild or rework event?
+                  </li>
+                  <li>
+                    Are test results linked to the specific serial number
+                    tested?
+                  </li>
+                  <li>
+                    Can your supply chain partners access what they need without
+                    email chains?
+                  </li>
+                  <li>Would your process survive a customer audit tomorrow?</li>
+                  <li>
+                    Are you tracking cycle time per build, or just total lead
+                    time?
+                  </li>
+                  <li>
+                    Is your hardware lifecycle data in one system &mdash; or
+                    five?
+                  </li>
+                </ul>
+                <div class="co" style="margin-top: 12px; font-size: 12px">
+                  Scoring: 0-4 yes = critical gaps. 5-8 = growing pains. 9-12 =
+                  ready to scale. Each "no" links to a Boltline capability page.
+                </div>
+              </div>
+            </div>
+            <a
+              href="lead-magnet-checklist.html"
+              target="_blank"
+              class="anim"
+              style="
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                margin-top: 20px;
+                padding: 10px 24px;
+                background: linear-gradient(135deg, var(--ac), var(--bl));
+                color: #fff;
+                font-size: 14px;
+                font-weight: 700;
+                border-radius: 8px;
+                text-decoration: none;
+                transition:
+                  transform 0.2s,
+                  box-shadow 0.2s;
+              "
+              onmouseover="
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 6px 20px rgba(56,189,248,.3)';
+              "
+              onmouseout="
+                this.style.transform = '';
+                this.style.boxShadow = '';
+              "
+              >View Interactive Prototype
+              <span style="font-size: 18px">&rarr;</span></a
+            >
+          </div>
+        </article>
+
+        <!-- ═══ APPENDIX: LINKEDIN SEQUENCE ═══ -->
+        <article class="s" data-appendix="true">
+          <div class="inner">
+            <div class="ki anim">Appendix &mdash; Sample LinkedIn Sequence</div>
+            <h2 class="anim">
+              "From Spreadsheets to Traceability" &mdash; 3-post arc
+            </h2>
+            <div class="g g3 anim" style="margin-top: 18px">
+              <div class="c" style="border-top: 3px solid var(--rd)">
+                <h3 style="color: var(--rd)">Post 1: Problem</h3>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: var(--tx);
+                    font-style: italic;
+                    line-height: 1.5;
+                  "
+                >
+                  "Your BOM lives in a spreadsheet. Your test records live in a
+                  shared drive. Your audit trail lives in someone's head.<br /><br />At
+                  5 people, this works.<br />At 15, it's a liability.<br />At
+                  50, it's a crisis.<br /><br />The question isn't whether
+                  you'll outgrow spreadsheets. It's whether you'll do it before
+                  or after your first costly mistake."
+                </p>
+                <div
+                  style="margin-top: 10px; font-size: 11px; color: var(--mut)"
+                >
+                  Goal: Resonance. No product mention. End with a question to
+                  drive comments.
+                </div>
+              </div>
+              <div class="c" style="border-top: 3px solid var(--gn)">
+                <h3 style="color: var(--gn)">Post 2: Proof</h3>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: var(--tx);
+                    font-style: italic;
+                    line-height: 1.5;
+                  "
+                >
+                  "Intuitive Machines needed full traceability for lunar lander
+                  hardware &mdash; every part, every test, every revision.<br /><br />They
+                  didn't have 18 months to deploy a legacy PLM system. They had
+                  a launch window.<br /><br />They went from spreadsheets to
+                  end-to-end traceability in weeks. The result: $6M in annual
+                  savings and met every mission deadline."
+                </p>
+                <div
+                  style="margin-top: 10px; font-size: 11px; color: var(--mut)"
+                >
+                  Goal: Credibility. Named customer, specific outcome, implied
+                  urgency.
+                </div>
+              </div>
+              <div class="c" style="border-top: 3px solid var(--ac)">
+                <h3 style="color: var(--ac)">Post 3: CTA</h3>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: var(--tx);
+                    font-style: italic;
+                    line-height: 1.5;
+                  "
+                >
+                  "We built a 12-question checklist to help hardware teams
+                  figure out if they've outgrown their current system.<br /><br />Takes
+                  3 minutes. No sales pitch. Just an honest look at where your
+                  traceability gaps are.<br /><br />Link in comments."
+                </p>
+                <div
+                  style="margin-top: 10px; font-size: 11px; color: var(--mut)"
+                >
+                  Goal: Conversion. Drives to lead magnet. Low commitment, high
+                  intent signal.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ APPENDIX: MESSAGING FRAMEWORK ═══ -->
+        <article class="s" data-appendix="true">
+          <div class="inner">
+            <div class="ki anim">
+              Appendix &mdash; Messaging Framework (Draft)
+            </div>
+            <h2 class="anim">Positioning hierarchy for Boltline</h2>
+            <div class="anim" style="margin-top: 16px">
+              <div
+                class="c"
+                style="border-left: 3px solid var(--ac); margin-bottom: 12px"
+              >
+                <h3 style="color: var(--ac)">Category Narrative</h3>
+                <p style="font-size: 14px; color: var(--tx)">
+                  Hardware teams are building the future &mdash; rockets,
+                  medical devices, carbon capture systems &mdash; but they're
+                  managing it all on tools designed for software companies or
+                  not designed at all. Boltline is the first platform built by
+                  hardware engineers, for hardware engineers.
+                </p>
+              </div>
+              <div class="g g2" style="gap: 10px; margin-bottom: 12px">
+                <div class="c">
+                  <h3 style="color: var(--pu); font-size: 12px">
+                    Value Prop 1: Traceability
+                  </h3>
+                  <p style="font-size: 13px">
+                    "Know where every part is, where it came from, and where
+                    it's going &mdash; from prototype to production."
+                  </p>
+                  <p style="font-size: 11px; color: var(--gn); margin-top: 6px">
+                    Proof: Intuitive Machines, $6M savings
+                  </p>
+                </div>
+                <div class="c">
+                  <h3 style="color: var(--pu); font-size: 12px">
+                    Value Prop 2: Speed
+                  </h3>
+                  <p style="font-size: 13px">
+                    "Deploy in days, not months. No consultants, no 6-month
+                    implementation, no shelf-ware."
+                  </p>
+                  <p style="font-size: 11px; color: var(--gn); margin-top: 6px">
+                    Proof: iSpace US, instant cloud deploy for Mission 3
+                  </p>
+                </div>
+                <div class="c">
+                  <h3 style="color: var(--pu); font-size: 12px">
+                    Value Prop 3: Compliance
+                  </h3>
+                  <p style="font-size: 13px">
+                    "Be audit-ready in hours, not weeks. Every action logged,
+                    every change tracked, every record exportable."
+                  </p>
+                  <p style="font-size: 11px; color: var(--gn); margin-top: 6px">
+                    Proof: 99.9% inventory accuracy (iSpace US)
+                  </p>
+                </div>
+                <div class="c">
+                  <h3 style="color: var(--pu); font-size: 12px">
+                    Value Prop 4: Collaboration
+                  </h3>
+                  <p style="font-size: 13px">
+                    "One system for engineering, manufacturing, QA, and supply
+                    chain. No more silos, no more version conflicts."
+                  </p>
+                  <p style="font-size: 11px; color: var(--gn); margin-top: 6px">
+                    Proof: 7 customers across space, energy, manufacturing
+                  </p>
+                </div>
+              </div>
+              <div class="g g3" style="gap: 10px">
+                <div
+                  class="c"
+                  style="background: var(--acg); border-color: var(--ac2)"
+                >
+                  <h3 style="font-size: 11px; color: var(--ac)">
+                    Persona: Engineering Lead
+                  </h3>
+                  <p style="font-size: 12px">
+                    "I need to move fast without losing control of what's been
+                    built, tested, and approved."
+                  </p>
+                </div>
+                <div
+                  class="c"
+                  style="
+                    background: var(--pug);
+                    border-color: rgba(139, 92, 246, 0.25);
+                  "
+                >
+                  <h3 style="font-size: 11px; color: #a78bfa">
+                    Persona: Operations Manager
+                  </h3>
+                  <p style="font-size: 12px">
+                    "I need the shop floor to follow the right instructions
+                    every time, without chasing engineers for updates."
+                  </p>
+                </div>
+                <div
+                  class="c"
+                  style="
+                    background: var(--gng);
+                    border-color: rgba(52, 211, 153, 0.25);
+                  "
+                >
+                  <h3 style="font-size: 11px; color: var(--gn)">
+                    Persona: Quality / Compliance
+                  </h3>
+                  <p style="font-size: 12px">
+                    "I need audit-ready records without spending a week pulling
+                    data from five systems."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ APPENDIX: SEO KEYWORD MAP ═══ -->
+        <article class="s" data-appendix="true">
+          <div class="inner">
+            <div class="ki anim">Appendix &mdash; SEO Keyword Map</div>
+            <h2 class="anim">Target keywords by use case and intent</h2>
+            <p class="anim" style="max-width: 680px">
+              Priority clusters mapped to use case landing pages. Each cluster
+              anchors a pillar page + supporting content.
+            </p>
+            <div class="kpi-table anim" style="margin-top: 16px">
+              <div class="kpi-row kpi-head">
+                <div class="kpi-metric">Keyword Cluster</div>
+                <div class="kpi-base">Intent Type</div>
+                <div class="kpi-target">Priority</div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">hardware BOM management software</div>
+                <div>Buyer &mdash; solution aware</div>
+                <div style="color: var(--gn)">
+                  <strong>P1</strong> &mdash; Pillar page
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">part traceability software</div>
+                <div>Buyer &mdash; solution aware</div>
+                <div style="color: var(--gn)">
+                  <strong>P1</strong> &mdash; Pillar page
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">
+                  digital work instructions manufacturing
+                </div>
+                <div>Buyer &mdash; problem aware</div>
+                <div style="color: var(--gn)">
+                  <strong>P1</strong> &mdash; Pillar page
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">hardware audit trail software</div>
+                <div>Buyer &mdash; compliance driven</div>
+                <div style="color: var(--ac)">
+                  <strong>P2</strong> &mdash; Use case page
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">PLM alternative for startups</div>
+                <div>Buyer &mdash; comparison</div>
+                <div style="color: var(--ac)">
+                  <strong>P2</strong> &mdash; vs. page
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">spreadsheet to PLM migration</div>
+                <div>Buyer &mdash; pain aware</div>
+                <div style="color: var(--ac)">
+                  <strong>P2</strong> &mdash; Blog post
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">hardware lifecycle management</div>
+                <div>Research &mdash; category</div>
+                <div style="color: var(--pu)">
+                  <strong>P3</strong> &mdash; Thought leadership
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">AS9100 compliance software</div>
+                <div>Buyer &mdash; compliance driven</div>
+                <div style="color: var(--pu)">
+                  <strong>P3</strong> &mdash; Vertical page
+                </div>
+              </div>
+            </div>
+            <div class="co anim" style="margin-top: 14px">
+              Clusters based on product capabilities and buyer language. Volume
+              and difficulty need validation via Ahrefs/Semrush in Week 1. P1
+              clusters map to sample campaign landing pages.
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ APPENDIX: ICP PERSONA CARDS ═══ -->
+        <article class="s" data-appendix="true">
+          <div class="inner">
+            <div class="ki anim">Appendix &mdash; ICP Persona Cards</div>
+            <h2 class="anim">Three buyers, three entry points, one platform</h2>
+            <div class="g g3 anim" style="margin-top: 18px">
+              <div class="c" style="border-top: 3px solid var(--ac)">
+                <h3 style="color: var(--ac)">Engineering Lead</h3>
+                <p
+                  style="
+                    font-size: 12px;
+                    color: var(--mut);
+                    margin-bottom: 10px;
+                  "
+                >
+                  VP/Director of Engineering or Hardware Engineering Manager
+                </p>
+                <ul style="font-size: 13px">
+                  <li>
+                    <strong style="color: var(--tx)">Pain:</strong> Losing
+                    control as team scales &mdash; revisions, BOMs, and test
+                    data scattered
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Trigger:</strong> First
+                    misbuild, missed revision, or customer asking "can you prove
+                    this?"
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Wins with:</strong>
+                    Traceability, speed, no-code workflows
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Objection:</strong> "We're
+                    moving too fast to add process"
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Content:</strong> Case
+                    studies, technical docs, demo
+                  </li>
+                </ul>
+              </div>
+              <div class="c" style="border-top: 3px solid var(--pu)">
+                <h3 style="color: var(--pu)">Operations Manager</h3>
+                <p
+                  style="
+                    font-size: 12px;
+                    color: var(--mut);
+                    margin-bottom: 10px;
+                  "
+                >
+                  Manufacturing Ops, Production Manager, or COO
+                </p>
+                <ul style="font-size: 13px">
+                  <li>
+                    <strong style="color: var(--tx)">Pain:</strong> Shop floor
+                    working from outdated instructions; rework and delays
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Trigger:</strong> Costly
+                    rework event or failed customer delivery
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Wins with:</strong> Digital
+                    work instructions, real-time inventory, collaboration
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Objection:</strong> "Our
+                    team won't adopt another tool"
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Content:</strong> ROI
+                    calculator, onboarding speed proof, webinar
+                  </li>
+                </ul>
+              </div>
+              <div class="c" style="border-top: 3px solid var(--gn)">
+                <h3 style="color: var(--gn)">Quality / Compliance</h3>
+                <p
+                  style="
+                    font-size: 12px;
+                    color: var(--mut);
+                    margin-bottom: 10px;
+                  "
+                >
+                  QA Lead, Compliance Officer, or Regulatory Affairs
+                </p>
+                <ul style="font-size: 13px">
+                  <li>
+                    <strong style="color: var(--tx)">Pain:</strong> Audit prep
+                    takes weeks; pulling records from multiple systems
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Trigger:</strong> Upcoming
+                    customer audit, AS9100/ISO certification, or FDA submission
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Wins with:</strong>
+                    Audit-ready records, compliance reporting, complete history
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Objection:</strong> "Can it
+                    meet our regulatory requirements?"
+                  </li>
+                  <li>
+                    <strong style="color: var(--tx)">Content:</strong>
+                    Compliance checklist, audit trail demo, vertical one-pager
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ═══ APPENDIX: COMPETITIVE MATRIX ═══ -->
+        <article class="s" data-appendix="true">
+          <div class="inner">
+            <div class="ki anim">Appendix &mdash; Competitive Positioning</div>
+            <h2 class="anim">Where Boltline wins and where to watch</h2>
+            <div class="kpi-table anim" style="margin-top: 16px">
+              <div class="kpi-row kpi-head">
+                <div class="kpi-metric">Capability</div>
+                <div>Arena (PTC)</div>
+                <div>Propel</div>
+                <div style="border-right: none">Boltline</div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">Target buyer</div>
+                <div>Enterprise (500+)</div>
+                <div>Mid-market SaaS + HW</div>
+                <div style="border-right: none; color: var(--gn)">
+                  SMB hardware (10-100)
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">Deploy time</div>
+                <div>6-18 months</div>
+                <div>2-4 months</div>
+                <div style="border-right: none; color: var(--gn)">
+                  Days to weeks
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">Hardware-native</div>
+                <div>Adapted from EE/SW</div>
+                <div>Salesforce-native, broader scope</div>
+                <div style="border-right: none; color: var(--gn)">
+                  Proven on space hardware
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">Pricing model</div>
+                <div>Enterprise contract, custom</div>
+                <div>Custom (+ Salesforce license)</div>
+                <div style="border-right: none; color: var(--gn)">
+                  Scales with team size
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">No-code workflows</div>
+                <div><span class="kpi-unk">Limited</span></div>
+                <div>Salesforce-dependent</div>
+                <div style="border-right: none; color: var(--gn)">
+                  Native, no-code
+                </div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi-metric">Market presence</div>
+                <div>Established leader</div>
+                <div>Growing, VC-backed</div>
+                <div style="border-right: none">
+                  <span class="kpi-unk">Early &mdash; needs awareness</span>
+                </div>
+              </div>
+            </div>
+            <div class="g g2 anim" style="margin-top: 14px">
+              <div class="co" style="font-size: 13px">
+                <strong>Where we win:</strong> Speed to deploy, hardware-native
+                data model, team adoption, cost for SMB buyers. The "too small
+                for PLM, too big for spreadsheets" gap is ours.
+              </div>
+              <div class="co pu" style="font-size: 13px">
+                <strong>Where to watch:</strong> Propel adding hardware
+                features. Arena accessible via AWS Marketplace. Category
+                awareness is low &mdash; most buyers don't know this option
+                exists yet.
+              </div>
+            </div>
+          </div>
+        </article>
       </section>
 
       <!-- ═══ NAV ═══ -->
@@ -2649,7 +3361,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
     <script>
 const S=Array.from(document.querySelectorAll('.s')),C=document.getElementById('ctr'),T=document.getElementById('ttl'),D=document.getElementById('dots'),P=document.getElementById('pv'),N=document.getElementById('nx');
 let cur=0;
-const titles=['','Role Readback','Known vs. Listen','Positioning & Enablement','Property Audit','Website Teardown','Use Cases','Funnel Diagnosis','ICP Hypothesis','Priority Matrix','System Design','Sample Campaign','30/60/90 Roadmap','KPI Targets','Decision + Ask','Risks','Methodology'];
+const titles=['','Role Readback','Known vs. Listen','Positioning & Enablement','Property Audit','Website Teardown','Use Cases','Funnel Diagnosis','ICP Hypothesis','Priority Matrix','System Design','Sample Campaign','30/60/90 Roadmap','KPI Targets','Decision + Ask','Risks','Methodology','Battle Card','Lead Magnet','LinkedIn Sequence','Messaging Framework','SEO Keyword Map','ICP Personas','Competitive Matrix'];
 S.forEach((s,i)=>{const d=document.createElement('div');d.className='dt'+(i===0?' on':'')+(s.dataset.appendix?' ap':'');d.onclick=()=>go(i);D.appendChild(d)});
 function go(i){if(i===cur||i<0||i>=S.length)return;const p=S[cur],n=S[i],fwd=i>cur;p.classList.remove('on');p.classList.add('out');n.style.transform=fwd?'translateX(24px)':'translateX(-24px)';n.style.opacity='0';n.classList.add('on');requestAnimationFrame(()=>requestAnimationFrame(()=>{n.style.transform='none';n.style.opacity='1'}));setTimeout(()=>{p.classList.remove('out');p.style.transform='';p.style.opacity=''},400);cur=i;ui()}
 function ui(){const main=S.filter(s=>!s.dataset.appendix).length;const isA=S[cur].dataset.appendix;C.textContent=isA?'Appendix':`${cur+1} / ${main}`;T.textContent=titles[cur]||'';document.querySelectorAll('.dt').forEach((d,i)=>d.classList.toggle('on',i===cur))}
