@@ -2763,6 +2763,57 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
           </div>
         </article>
 
+        <!-- ═══ APPENDIX: SALES ENGINEERING FRICTION MAP ═══ -->
+        <article class="s" data-appendix="true">
+          <div class="inner">
+            <div class="ki anim">Appendix &mdash; Sales Engineering Friction Map</div>
+            <h2 class="anim">Where technical deals slow down (and what to fix)</h2>
+            <p class="anim" style="max-width: 760px">
+              Structured for a joint Sales + Solutions Engineering review so
+              Marketing can build assets that remove technical blockers earlier.
+            </p>
+            <div class="g g3 anim" style="margin-top: 16px">
+              <div class="c" style="border-top: 2px solid var(--ac)">
+                <h3 style="color: var(--ac)">Discovery Friction</h3>
+                <ul>
+                  <li>Missing technical qualifiers in early discovery calls</li>
+                  <li>Architecture fit unknown until too late</li>
+                  <li>Data migration scope not pressure-tested</li>
+                </ul>
+                <p style="font-size: 12px; margin-top: 8px; color: var(--tx)">
+                  Needed: pre-demo technical fit checklist + discovery prompts.
+                </p>
+              </div>
+              <div class="c" style="border-top: 2px solid var(--am)">
+                <h3 style="color: var(--am)">Demo / POC Friction</h3>
+                <ul>
+                  <li>PLM/ERP integration uncertainty</li>
+                  <li>Security/compliance questions (ITAR, controls)</li>
+                  <li>Workflow fit concerns for real shop-floor use</li>
+                </ul>
+                <p style="font-size: 12px; margin-top: 8px; color: var(--tx)">
+                  Needed: integration one-pager + security brief + sample rollout.
+                </p>
+              </div>
+              <div class="c" style="border-top: 2px solid var(--pu)">
+                <h3 style="color: var(--pu)">Close / Win-Loss Friction</h3>
+                <ul>
+                  <li>Top technical loss reasons not centralized</li>
+                  <li>No standard objection-handling asset stack</li>
+                  <li>POC outcomes not tied to clear success criteria</li>
+                </ul>
+                <p style="font-size: 12px; margin-top: 8px; color: var(--tx)">
+                  Needed: objection library + SE readout template + POC rubric.
+                </p>
+              </div>
+            </div>
+            <div class="co anim" style="margin-top: 14px">
+              SE metrics to track monthly: POC win rate, time-to-first-value,
+              and frequency of top technical objections by deal stage.
+            </div>
+          </div>
+        </article>
+
         <!-- ═══ APPENDIX: LEAD MAGNET ═══ -->
         <article class="s" data-appendix="true">
           <div class="inner">
@@ -3361,7 +3412,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
     <script>
 const S=Array.from(document.querySelectorAll('.s')),C=document.getElementById('ctr'),T=document.getElementById('ttl'),D=document.getElementById('dots'),P=document.getElementById('pv'),N=document.getElementById('nx');
 let cur=0;
-const titles=['','Role Readback','Known vs. Listen','Positioning & Enablement','Property Audit','Website Teardown','Use Cases','Funnel Diagnosis','ICP Hypothesis','Priority Matrix','System Design','Sample Campaign','30/60/90 Roadmap','KPI Targets','Decision + Ask','Risks','Methodology','Battle Card','Lead Magnet','LinkedIn Sequence','Messaging Framework','SEO Keyword Map','ICP Personas','Competitive Matrix'];
+const titles=['','Role Readback','Known vs. Listen','Positioning & Enablement','Property Audit','Website Teardown','Use Cases','Funnel Diagnosis','ICP Hypothesis','Priority Matrix','System Design','Sample Campaign','30/60/90 Roadmap','KPI Targets','Decision + Ask','Risks','Methodology','Battle Card','SE Friction Map','Lead Magnet','LinkedIn Sequence','Messaging Framework','SEO Keyword Map','ICP Personas','Competitive Matrix'];
 S.forEach((s,i)=>{const d=document.createElement('div');d.className='dt'+(i===0?' on':'')+(s.dataset.appendix?' ap':'');d.onclick=()=>go(i);D.appendChild(d)});
 function go(i){if(i===cur||i<0||i>=S.length)return;const p=S[cur],n=S[i],fwd=i>cur;p.classList.remove('on');p.classList.add('out');n.style.transform=fwd?'translateX(24px)':'translateX(-24px)';n.style.opacity='0';n.classList.add('on');requestAnimationFrame(()=>requestAnimationFrame(()=>{n.style.transform='none';n.style.opacity='1'}));setTimeout(()=>{p.classList.remove('out');p.style.transform='';p.style.opacity=''},400);cur=i;ui()}
 function ui(){const main=S.filter(s=>!s.dataset.appendix).length;const isA=S[cur].dataset.appendix;C.textContent=isA?'Appendix':`${cur+1} / ${main}`;T.textContent=titles[cur]||'';document.querySelectorAll('.dt').forEach((d,i)=>d.classList.toggle('on',i===cur))}
