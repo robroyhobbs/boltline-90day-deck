@@ -31,7 +31,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(122,0,223,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(122,0,223,.02) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
 
 /* ─── DECK FRAME ─── */
-.deck{height:100dvh;display:grid;grid-template-rows:1fr auto;position:relative;z-index:1}
+.deck{height:100dvh;display:grid;grid-template-rows:1fr auto;position:relative;z-index:1;min-height:0}
 .sc{position:relative;overflow:hidden}
 
 /* ─── SLIDES ─── */
@@ -181,6 +181,13 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 .btns{display:flex;gap:8px}
 .btn{background:transparent;border:1px solid var(--bd);color:var(--dim);border-radius:6px;padding:6px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .2s}
 .btn:hover{border-color:var(--acl);color:var(--tx);background:var(--acg)}
+
+/* ─── SECTION TABS ─── */
+.sec-tab{font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.04em;color:var(--mut);padding:8px 14px;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;user-select:none}
+.sec-tab:hover{color:var(--dim)}
+.sec-tab.on{color:var(--acl);border-bottom-color:var(--ac)}
+.sec-tab .sec-count{font-size:9px;font-weight:400;color:var(--mut);margin-left:4px;opacity:.6}
+#section-nav::-webkit-scrollbar{display:none}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:900px){
@@ -3397,30 +3404,93 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
       </section>
 
       <!-- ═══ NAV ═══ -->
-      <nav class="nb">
-        <div class="nl">
-          <span class="nc" id="ctr">1 / 15</span
-          ><span class="nt" id="ttl"></span>
+      <nav class="nb" style="flex-direction:column;padding:0;gap:0;">
+        <!-- Section tabs -->
+        <div id="section-nav" style="display:flex;align-items:center;width:100%;border-bottom:1px solid var(--bd);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;">
+          <div style="display:flex;align-items:center;gap:0;min-width:0;padding:0 12px;" id="sec-tabs"></div>
+          <div style="margin-left:auto;padding:0 12px;flex-shrink:0;">
+            <a href="https://robroyhobbs.github.io/boltline-redesign/" target="_blank" style="color:#c084fc;text-decoration:none;font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.05em;padding:8px 12px;border-radius:6px;background:rgba(122,0,223,.1);border:1px solid rgba(122,0,223,.2);white-space:nowrap;display:inline-block;">Website Exploration &rarr;</a>
+          </div>
         </div>
-        <div class="nd" id="dots"></div>
-        <div class="btns">
-          <a href="https://robroyhobbs.github.io/boltline-redesign/" target="_blank" class="btn" style="background:rgba(122,0,223,0.2);border-color:rgba(122,0,223,0.4);color:#c084fc;text-decoration:none;font-size:12px;margin-right:8px;">Website Exploration &rarr;</a>
-          <button class="btn" id="pv">&larr; Prev</button
-          ><button class="btn" id="nx">Next &rarr;</button>
+        <!-- Slide controls -->
+        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:6px 16px;">
+          <div class="nl">
+            <span class="nc" id="ctr">1 / 15</span><span class="nt" id="ttl"></span>
+          </div>
+          <div class="nd" id="dots"></div>
+          <div class="btns">
+            <button class="btn" id="pv">&larr;</button><button class="btn" id="nx">&rarr;</button>
+          </div>
         </div>
       </nav>
     </main>
     <!-- prettier-ignore -->
     <script>
-const S=Array.from(document.querySelectorAll('.s')),C=document.getElementById('ctr'),T=document.getElementById('ttl'),D=document.getElementById('dots'),P=document.getElementById('pv'),N=document.getElementById('nx');
+const S=Array.from(document.querySelectorAll('.s')),C=document.getElementById('ctr'),T=document.getElementById('ttl'),D=document.getElementById('dots'),P=document.getElementById('pv'),N=document.getElementById('nx'),ST=document.getElementById('sec-tabs');
 let cur=0;
+
+const sections=[
+  ['Intro',0,1],
+  ['Discovery',1,2],
+  ['Positioning',3,1],
+  ['Website Audit',4,3],
+  ['Go-to-Market',7,3],
+  ['The System',10,2],
+  ['The Plan',12,3],
+  ['Appendix',15,10]
+];
+
 const titles=['','Role Readback','Known vs. Listen','Positioning & Enablement','Property Audit','Website Teardown','Use Cases','Funnel Diagnosis','ICP Hypothesis','Priority Matrix','System Design','Sample Campaign','30/60/90 Roadmap','KPI Targets','Decision + Ask','Risks','Methodology','Battle Card','SE Friction Map','Lead Magnet','LinkedIn Sequence','Messaging Framework','SEO Keyword Map','ICP Personas','Competitive Matrix'];
-S.forEach((s,i)=>{const d=document.createElement('div');d.className='dt'+(i===0?' on':'')+(s.dataset.appendix?' ap':'');d.onclick=()=>go(i);D.appendChild(d)});
-function go(i){if(i===cur||i<0||i>=S.length)return;const p=S[cur],n=S[i],fwd=i>cur;p.classList.remove('on');p.classList.add('out');n.style.transform=fwd?'translateX(24px)':'translateX(-24px)';n.style.opacity='0';n.classList.add('on');requestAnimationFrame(()=>requestAnimationFrame(()=>{n.style.transform='none';n.style.opacity='1'}));setTimeout(()=>{p.classList.remove('out');p.style.transform='';p.style.opacity=''},400);cur=i;ui()}
-function ui(){const main=S.filter(s=>!s.dataset.appendix).length;const isA=S[cur].dataset.appendix;C.textContent=isA?'Appendix':`${cur+1} / ${main}`;T.textContent=titles[cur]||'';document.querySelectorAll('.dt').forEach((d,i)=>d.classList.toggle('on',i===cur))}
-ui();P.onclick=()=>go(cur-1);N.onclick=()=>go(cur+1);
-document.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(cur+1)}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(cur-1)}if(e.key==='Home'){e.preventDefault();go(0)}if(e.key==='End'){e.preventDefault();go(S.length-1)}};
-let tx=0;document.ontouchstart=e=>{tx=e.touches[0].clientX};document.ontouchend=e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(cur+(d<0?1:-1))};
+
+sections.forEach(function(sec,si){
+  var tab=document.createElement('div');
+  tab.className='sec-tab'+(si===0?' on':'');
+  var label=document.createTextNode(sec[0]);
+  var count=document.createElement('span');
+  count.className='sec-count';
+  count.textContent=sec[2];
+  tab.appendChild(label);
+  tab.appendChild(count);
+  tab.onclick=function(){go(sec[1]);};
+  tab.dataset.si=si;
+  ST.appendChild(tab);
+});
+
+var dotSlideMap=[];
+sections.forEach(function(sec,si){
+  if(si>0){var sp=document.createElement('div');sp.style.cssText='width:1px;height:12px;background:rgba(255,255,255,.06);margin:0 4px;flex-shrink:0';D.appendChild(sp);}
+  for(var j=0;j<sec[2];j++){
+    var idx=sec[1]+j;
+    var d=document.createElement('div');
+    d.className='dt'+(idx===0?' on':'')+(si===sections.length-1?' ap':'');
+    d.onclick=(function(x){return function(){go(x);};})(idx);
+    d.title=titles[idx]||sec[0];
+    D.appendChild(d);
+    dotSlideMap.push(idx);
+  }
+});
+
+function getSectionForSlide(i){for(var s=sections.length-1;s>=0;s--){if(i>=sections[s][1])return s;}return 0;}
+
+function go(i){if(i===cur||i<0||i>=S.length)return;var p=S[cur],n=S[i],fwd=i>cur;p.classList.remove('on');p.classList.add('out');n.style.transform=fwd?'translateX(24px)':'translateX(-24px)';n.style.opacity='0';n.classList.add('on');requestAnimationFrame(function(){requestAnimationFrame(function(){n.style.transform='none';n.style.opacity='1';});});setTimeout(function(){p.classList.remove('out');p.style.transform='';p.style.opacity='';},400);cur=i;ui();}
+
+function ui(){
+  var si=getSectionForSlide(cur);
+  var sec=sections[si];
+  var localIdx=cur-sec[1]+1;
+  var isAppendix=si===sections.length-1;
+  C.textContent=isAppendix?'Appendix '+localIdx+'/'+sec[2]:sec[0]+' '+localIdx+'/'+sec[2];
+  T.textContent=titles[cur]||'';
+  var dots=D.querySelectorAll('.dt');
+  dots.forEach(function(d,di){d.classList.toggle('on',dotSlideMap[di]===cur);});
+  document.querySelectorAll('.sec-tab').forEach(function(tab,i){tab.classList.toggle('on',i===si);});
+  var activeTab=ST.querySelector('.sec-tab.on');
+  if(activeTab)activeTab.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+ui();P.onclick=function(){go(cur-1);};N.onclick=function(){go(cur+1);};
+document.onkeydown=function(e){if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(cur+1);}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(cur-1);}if(e.key==='Home'){e.preventDefault();go(0);}if(e.key==='End'){e.preventDefault();go(S.length-1);}};
+var tx=0;document.ontouchstart=function(e){tx=e.touches[0].clientX;};document.ontouchend=function(e){var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)go(cur+(d<0?1:-1));};
 </script>
   </body>
 </html>
