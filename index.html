@@ -10,14 +10,15 @@
 
 /* ─── TOKENS ─── */
 :root {
-  --bg:#080c16; --sf:rgba(255,255,255,.03); --sf2:rgba(255,255,255,.06);
+  --bg:#0a0a0f; --sf:rgba(255,255,255,.03); --sf2:rgba(255,255,255,.06);
   --bd:rgba(255,255,255,.08); --bd2:rgba(255,255,255,.12);
-  --tx:#eef2f7; --dim:#b0bece; --mut:#8494a7;
-  --ac:#38bdf8; --acg:rgba(56,189,248,.1); --ac2:rgba(56,189,248,.25);
-  --pu:#8b5cf6; --pug:rgba(139,92,246,.1);
-  --gn:#34d399; --gng:rgba(52,211,153,.08);
-  --am:#fbbf24; --amg:rgba(251,191,36,.08);
-  --rd:#f87171; --rdg:rgba(248,113,113,.08);
+  --tx:#e0e0f0; --dim:#8888aa; --mut:#555566;
+  --ac:#7a00df; --acg:rgba(122,0,223,.08); --ac2:rgba(122,0,223,.2);
+  --acl:#c084fc;
+  --pu:#c084fc; --pug:rgba(192,132,252,.1);
+  --gn:#00d084; --gng:rgba(0,208,132,.08);
+  --am:#f59e0b; --amg:rgba(245,158,11,.08);
+  --rd:#ef4444; --rdg:rgba(239,68,68,.08);
   --r:12px; --r2:8px;
 }
 
@@ -26,8 +27,8 @@
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);overflow:hidden;height:100dvh;-webkit-font-smoothing:antialiased}
 
 /* ─── BG DEPTH ─── */
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(56,189,248,.04) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 80% 100%,rgba(139,92,246,.03) 0%,transparent 50%);pointer-events:none;z-index:0}
-body::after{content:'';position:fixed;inset:0;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(122,0,223,.06) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 80% 100%,rgba(192,132,252,.03) 0%,transparent 50%);pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(122,0,223,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(122,0,223,.02) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
 
 /* ─── DECK FRAME ─── */
 .deck{height:100dvh;display:grid;grid-template-rows:1fr auto;position:relative;z-index:1}
@@ -50,7 +51,7 @@ body::after{content:'';position:fixed;inset:0;opacity:.35;background-image:url("
 .s.on .anim:nth-child(6){animation-delay:.42s}
 
 /* ─── TYPOGRAPHY ─── */
-.ki{font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);margin-bottom:14px;opacity:.85}
+.ki{font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acl);margin-bottom:14px;opacity:.85}
 h1{font-family:'Sora',sans-serif;font-size:clamp(32px,4.2vw,52px);font-weight:800;line-height:1.05;letter-spacing:-.03em;background:linear-gradient(135deg,var(--tx) 0%,var(--dim) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 h2{font-family:'Sora',sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:8px}
 h3{font-family:'Sora',sans-serif;font-size:14px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
@@ -58,7 +59,7 @@ h3{font-family:'Sora',sans-serif;font-size:14px;font-weight:600;margin-bottom:8p
 p{color:var(--dim);line-height:1.55;font-size:14.5px}
 ul{list-style:none;padding:0}
 li{position:relative;padding-left:16px;margin-bottom:6px;font-size:14.5px;color:var(--dim);line-height:1.5}
-li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ac);opacity:.6}
+li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--acl);opacity:.6}
 
 /* ─── GRID ─── */
 .g{display:grid;gap:14px;margin-top:18px}
@@ -70,8 +71,8 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 .c:hover{border-color:var(--bd2)}
 
 /* ─── CALLOUT ─── */
-.co{margin-top:20px;padding:14px 18px;border-radius:var(--r);background:var(--acg);border:1px solid var(--ac2);font-size:14px;font-weight:500;color:var(--ac);line-height:1.5}
-.co.pu{background:var(--pug);border-color:rgba(139,92,246,.25);color:#c4b5fd}
+.co{margin-top:20px;padding:14px 18px;border-radius:var(--r);background:var(--acg);border:1px solid var(--ac2);font-size:14px;font-weight:500;color:var(--acl);line-height:1.5}
+.co.pu{background:var(--pug);border-color:rgba(192,132,252,.25);color:#c4b5fd}
 
 /* ─── STATS ─── */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
@@ -84,14 +85,14 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 .sr{display:grid;grid-template-columns:160px 1fr 100px 40px;align-items:center;gap:14px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);padding:12px 16px}
 .sr-l{font-size:14px;font-weight:500}
 .sr-b{height:6px;background:rgba(255,255,255,.04);border-radius:99px;overflow:hidden}
-.sr-f{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--ac),var(--pu))}
+.sr-f{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--ac),var(--acl))}
 .sr-n{font-size:11.5px;color:var(--dim)}
 .sr-v{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;text-align:right}
 
 /* ─── READBACK ─── */
 .rb{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
 .ri{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);padding:12px 14px}
-.ri-i{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:12px;font-weight:700;background:var(--acg);border:1px solid var(--ac2);color:var(--ac)}
+.ri-i{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:12px;font-weight:700;background:var(--acg);border:1px solid var(--ac2);color:var(--acl)}
 .ri-t{font-size:14px;font-weight:500;line-height:1.35}
 .ri-s{font-size:12px;color:var(--dim);margin-top:2px}
 
@@ -108,15 +109,15 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 .ph-desc{font-size:12.5px;color:var(--mut);margin-bottom:10px;line-height:1.45}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tag{font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 10px;border-radius:6px;font-weight:600}
-.tag.bl{background:rgba(56,189,248,.08);color:var(--ac);border:1px solid rgba(56,189,248,.18)}
-.tag.pr{background:rgba(139,92,246,.08);color:#a78bfa;border:1px solid rgba(139,92,246,.18)}
+.tag.bl{background:rgba(122,0,223,.08);color:var(--acl);border:1px solid rgba(122,0,223,.18)}
+.tag.pr{background:rgba(122,0,223,.08);color:#c084fc;border:1px solid rgba(122,0,223,.18)}
 .tag.gr{background:rgba(52,211,153,.08);color:var(--gn);border:1px solid rgba(52,211,153,.18)}
 
 /* ─── CADENCE ─── */
 .cc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:8px}
 .cf{font-family:'Sora',sans-serif;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:5px;width:fit-content}
-.cf.w{background:rgba(56,189,248,.08);color:var(--ac)}
-.cf.m{background:rgba(139,92,246,.08);color:#a78bfa}
+.cf.w{background:rgba(122,0,223,.08);color:var(--acl)}
+.cf.m{background:rgba(192,132,252,.08);color:#c084fc}
 .cf.q{background:rgba(52,211,153,.08);color:var(--gn)}
 
 /* ─── METRIC ─── */
@@ -127,13 +128,13 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 /* ─── QUESTIONS ─── */
 .ql{display:grid;gap:24px;margin-top:32px}
 .qi{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start}
-.qn{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:20px;font-weight:800;background:var(--acg);border:1px solid var(--ac2);color:var(--ac)}
+.qn{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:20px;font-weight:800;background:var(--acg);border:1px solid var(--ac2);color:var(--acl)}
 .qt{font-size:19px;font-weight:400;line-height:1.4;padding-top:10px;letter-spacing:-.01em}
 
 /* ─── USE CASE SLIDE ─── */
 .uc-grid{display:grid;grid-template-columns:1fr 40px 1fr;gap:0;align-items:start;margin-top:18px}
 .uc-col{display:flex;flex-direction:column;gap:8px}
-.uc-arrow{display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--ac);padding-top:40px}
+.uc-arrow{display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--acl);padding-top:40px}
 .uc-lbl{font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;padding:4px 10px;border-radius:5px;width:fit-content}
 .uc-lbl.now{color:var(--rd);background:var(--rdg)}
 .uc-lbl.better{color:var(--gn);background:var(--gng)}
@@ -147,9 +148,9 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 .mc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:16px}
 .mc h3{font-family:'Sora',sans-serif;font-size:12px;font-weight:600;margin-bottom:8px}
 .ev{display:inline-block;font-size:10px;padding:3px 8px;border-radius:5px;margin-right:5px}
-.ev.ob{background:rgba(56,189,248,.08);color:var(--ac);border:1px solid rgba(56,189,248,.18)}
+.ev.ob{background:rgba(122,0,223,.08);color:var(--ac);border:1px solid rgba(122,0,223,.18)}
 .ev.in{background:rgba(251,191,36,.08);color:var(--am);border:1px solid rgba(251,191,36,.18)}
-.ev.as{background:rgba(139,92,246,.08);color:#a78bfa;border:1px solid rgba(139,92,246,.18)}
+.ev.as{background:rgba(192,132,252,.08);color:#c084fc;border:1px solid rgba(192,132,252,.18)}
 
 /* ─── KPI TABLE ─── */
 .kpi-table{display:grid;gap:0}
@@ -169,17 +170,17 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
 .svgw svg{max-width:100%;max-height:55vh;height:auto}
 
 /* ─── NAV BAR ─── */
-.nb{display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:rgba(8,12,22,.9);border-top:1px solid var(--bd);backdrop-filter:blur(12px)}
+.nb{display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:rgba(10,10,15,.9);border-top:1px solid var(--bd);backdrop-filter:blur(12px)}
 .nl{display:flex;align-items:center;gap:12px}
 .nc{font-family:'Sora',sans-serif;font-size:11px;color:var(--mut);font-weight:500;min-width:58px}
 .nt{font-size:11px;color:var(--mut);font-weight:400}
 .nd{display:flex;gap:6px}
 .dt{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.1);cursor:pointer;transition:all .3s}
-.dt.on{background:var(--ac);box-shadow:0 0 8px rgba(56,189,248,.45)}
+.dt.on{background:var(--acl);box-shadow:0 0 8px rgba(122,0,223,.45)}
 .dt.ap{border-radius:2px}
 .btns{display:flex;gap:8px}
 .btn{background:transparent;border:1px solid var(--bd);color:var(--dim);border-radius:6px;padding:6px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .2s}
-.btn:hover{border-color:var(--ac);color:var(--tx);background:var(--acg)}
+.btn:hover{border-color:var(--acl);color:var(--tx);background:var(--acg)}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:900px){
@@ -643,7 +644,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="210"
                   y="57"
-                  fill="#f87171"
+                  fill="#ef4444"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -806,7 +807,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="460"
                   y="225"
-                  fill="var(--ac,#38bdf8)"
+                  fill="var(--ac,#c084fc)"
                   font-size="28"
                   font-weight="800"
                   text-anchor="middle"
@@ -873,7 +874,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="710"
                   y="57"
-                  fill="#34d399"
+                  fill="#00d084"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -889,7 +890,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   height="105"
                   rx="8"
                   fill="rgba(255,255,255,.04)"
-                  stroke="rgba(56,189,248,.2)"
+                  stroke="rgba(122,0,223,.2)"
                 />
                 <rect
                   x="536"
@@ -897,12 +898,12 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   width="140"
                   height="8"
                   rx="2"
-                  fill="rgba(56,189,248,.35)"
+                  fill="rgba(122,0,223,.35)"
                 />
                 <text
                   x="536"
                   y="95"
-                  fill="rgba(56,189,248,.6)"
+                  fill="rgba(122,0,223,.6)"
                   font-size="6"
                   font-family="Sora,sans-serif"
                 >
@@ -941,7 +942,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="822"
                   y="108"
-                  fill="#34d399"
+                  fill="#00d084"
                   font-size="16"
                   font-weight="800"
                   text-anchor="middle"
@@ -983,12 +984,12 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   width="72"
                   height="14"
                   rx="4"
-                  fill="rgba(56,189,248,.25)"
+                  fill="rgba(122,0,223,.25)"
                 />
                 <text
                   x="572"
                   y="172"
-                  fill="#38bdf8"
+                  fill="#c084fc"
                   font-size="7"
                   font-weight="600"
                   text-anchor="middle"
@@ -1004,7 +1005,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   height="105"
                   rx="8"
                   fill="rgba(255,255,255,.04)"
-                  stroke="rgba(139,92,246,.2)"
+                  stroke="rgba(192,132,252,.2)"
                 />
                 <rect
                   x="536"
@@ -1012,12 +1013,12 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   width="160"
                   height="8"
                   rx="2"
-                  fill="rgba(139,92,246,.35)"
+                  fill="rgba(192,132,252,.35)"
                 />
                 <text
                   x="536"
                   y="211"
-                  fill="rgba(139,92,246,.6)"
+                  fill="rgba(192,132,252,.6)"
                   font-size="6"
                   font-family="Sora,sans-serif"
                 >
@@ -1049,13 +1050,13 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   width="124"
                   height="44"
                   rx="6"
-                  fill="rgba(139,92,246,.08)"
-                  stroke="rgba(139,92,246,.2)"
+                  fill="rgba(192,132,252,.08)"
+                  stroke="rgba(192,132,252,.2)"
                 />
                 <text
                   x="822"
                   y="224"
-                  fill="#a78bfa"
+                  fill="#c084fc"
                   font-size="16"
                   font-weight="800"
                   text-anchor="middle"
@@ -1066,7 +1067,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="822"
                   y="238"
-                  fill="rgba(139,92,246,.6)"
+                  fill="rgba(192,132,252,.6)"
                   font-size="7.5"
                   text-anchor="middle"
                   font-family="DM Sans,sans-serif"
@@ -1095,12 +1096,12 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   width="72"
                   height="14"
                   rx="4"
-                  fill="rgba(139,92,246,.25)"
+                  fill="rgba(192,132,252,.25)"
                 />
                 <text
                   x="572"
                   y="288"
-                  fill="#a78bfa"
+                  fill="#c084fc"
                   font-size="7"
                   font-weight="600"
                   text-anchor="middle"
@@ -1167,7 +1168,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="822"
                   y="340"
-                  fill="#fbbf24"
+                  fill="#f59e0b"
                   font-size="16"
                   font-weight="800"
                   text-anchor="middle"
@@ -1212,7 +1213,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="572"
                   y="404"
-                  fill="#fbbf24"
+                  fill="#f59e0b"
                   font-size="7"
                   font-weight="600"
                   text-anchor="middle"
@@ -1250,13 +1251,13 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
               >
                 <path
                   d="M80 20 L460 20 L420 100 L120 100Z"
-                  fill="rgba(56,189,248,.08)"
-                  stroke="rgba(56,189,248,.35)"
+                  fill="rgba(122,0,223,.08)"
+                  stroke="rgba(122,0,223,.35)"
                 />
                 <path
                   d="M120 106 L420 106 L390 186 L150 186Z"
-                  fill="rgba(139,92,246,.08)"
-                  stroke="rgba(139,92,246,.35)"
+                  fill="rgba(192,132,252,.08)"
+                  stroke="rgba(192,132,252,.35)"
                 />
                 <path
                   d="M150 192 L390 192 L365 268 L175 268Z"
@@ -1271,7 +1272,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="270"
                   y="68"
-                  fill="#38bdf8"
+                  fill="#c084fc"
                   font-size="14"
                   font-weight="700"
                   text-anchor="middle"
@@ -1282,7 +1283,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="270"
                   y="152"
-                  fill="#a78bfa"
+                  fill="#c084fc"
                   font-size="14"
                   font-weight="700"
                   text-anchor="middle"
@@ -1293,7 +1294,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="270"
                   y="237"
-                  fill="#fbbf24"
+                  fill="#f59e0b"
                   font-size="14"
                   font-weight="700"
                   text-anchor="middle"
@@ -1304,7 +1305,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="270"
                   y="314"
-                  fill="#34d399"
+                  fill="#00d084"
                   font-size="14"
                   font-weight="700"
                   text-anchor="middle"
@@ -1324,7 +1325,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="504"
                   y="38"
-                  fill="#eef2f7"
+                  fill="#e0e0f0"
                   font-size="12"
                   font-weight="600"
                   font-family="DM Sans,sans-serif"
@@ -1334,7 +1335,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="504"
                   y="54"
-                  fill="#8494a7"
+                  fill="#8888aa"
                   font-size="11"
                   font-family="DM Sans,sans-serif"
                 >
@@ -1343,7 +1344,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="504"
                   y="70"
-                  fill="#8494a7"
+                  fill="#8888aa"
                   font-size="11"
                   font-family="DM Sans,sans-serif"
                 >
@@ -1361,7 +1362,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="504"
                   y="124"
-                  fill="#eef2f7"
+                  fill="#e0e0f0"
                   font-size="12"
                   font-weight="600"
                   font-family="DM Sans,sans-serif"
@@ -1371,7 +1372,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="504"
                   y="140"
-                  fill="#8494a7"
+                  fill="#8888aa"
                   font-size="11"
                   font-family="DM Sans,sans-serif"
                 >
@@ -1380,7 +1381,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="504"
                   y="156"
-                  fill="#8494a7"
+                  fill="#8888aa"
                   font-size="11"
                   font-family="DM Sans,sans-serif"
                 >
@@ -1398,7 +1399,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="504"
                   y="210"
-                  fill="#eef2f7"
+                  fill="#e0e0f0"
                   font-size="12"
                   font-weight="600"
                   font-family="DM Sans,sans-serif"
@@ -1408,7 +1409,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="504"
                   y="226"
-                  fill="#8494a7"
+                  fill="#8888aa"
                   font-size="11"
                   font-family="DM Sans,sans-serif"
                 >
@@ -1417,7 +1418,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="504"
                   y="242"
-                  fill="#8494a7"
+                  fill="#8888aa"
                   font-size="11"
                   font-family="DM Sans,sans-serif"
                 >
@@ -1435,7 +1436,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="504"
                   y="292"
-                  fill="#eef2f7"
+                  fill="#e0e0f0"
                   font-size="12"
                   font-weight="600"
                   font-family="DM Sans,sans-serif"
@@ -1445,7 +1446,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="504"
                   y="308"
-                  fill="#8494a7"
+                  fill="#8888aa"
                   font-size="11"
                   font-family="DM Sans,sans-serif"
                 >
@@ -1454,7 +1455,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="504"
                   y="324"
-                  fill="#8494a7"
+                  fill="#8888aa"
                   font-size="11"
                   font-family="DM Sans,sans-serif"
                 >
@@ -1601,7 +1602,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="385"
                   y="408"
-                  fill="#8494a7"
+                  fill="#8888aa"
                   font-size="12"
                   text-anchor="middle"
                   font-weight="600"
@@ -1630,7 +1631,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="36"
                   y="208"
-                  fill="#8494a7"
+                  fill="#8888aa"
                   font-size="12"
                   text-anchor="middle"
                   font-weight="600"
@@ -1694,7 +1695,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="200"
                   y="96"
-                  fill="#34d399"
+                  fill="#00d084"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -1705,7 +1706,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="200"
                   y="110"
-                  fill="#34d399"
+                  fill="#00d084"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -1717,14 +1718,14 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   cx="305"
                   cy="120"
                   r="44"
-                  fill="rgba(56,189,248,.1)"
-                  stroke="rgba(56,189,248,.4)"
+                  fill="rgba(122,0,223,.1)"
+                  stroke="rgba(122,0,223,.4)"
                   stroke-width="1.5"
                 />
                 <text
                   x="305"
                   y="116"
-                  fill="#38bdf8"
+                  fill="#c084fc"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -1735,7 +1736,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="305"
                   y="130"
-                  fill="#38bdf8"
+                  fill="#c084fc"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -1754,7 +1755,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="180"
                   y="181"
-                  fill="#fbbf24"
+                  fill="#f59e0b"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -1765,7 +1766,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="180"
                   y="195"
-                  fill="#fbbf24"
+                  fill="#f59e0b"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -1777,14 +1778,14 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   cx="440"
                   cy="155"
                   r="42"
-                  fill="rgba(139,92,246,.1)"
-                  stroke="rgba(139,92,246,.4)"
+                  fill="rgba(192,132,252,.1)"
+                  stroke="rgba(192,132,252,.4)"
                   stroke-width="1.5"
                 />
                 <text
                   x="440"
                   y="151"
-                  fill="#a78bfa"
+                  fill="#c084fc"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -1795,7 +1796,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="440"
                   y="165"
-                  fill="#a78bfa"
+                  fill="#c084fc"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -1807,14 +1808,14 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   cx="530"
                   cy="110"
                   r="44"
-                  fill="rgba(56,189,248,.1)"
-                  stroke="rgba(56,189,248,.4)"
+                  fill="rgba(122,0,223,.1)"
+                  stroke="rgba(122,0,223,.4)"
                   stroke-width="1.5"
                 />
                 <text
                   x="530"
                   y="106"
-                  fill="#38bdf8"
+                  fill="#c084fc"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -1825,7 +1826,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="530"
                   y="120"
-                  fill="#38bdf8"
+                  fill="#c084fc"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -1844,7 +1845,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="580"
                   y="296"
-                  fill="#f87171"
+                  fill="#ef4444"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -1855,7 +1856,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="580"
                   y="310"
-                  fill="#f87171"
+                  fill="#ef4444"
                   font-size="11"
                   font-weight="700"
                   text-anchor="middle"
@@ -1896,13 +1897,13 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   cy="195"
                   r="55"
                   fill="rgba(255,255,255,.02)"
-                  stroke="rgba(56,189,248,.4)"
+                  stroke="rgba(122,0,223,.4)"
                   stroke-width="2"
                 />
                 <text
                   x="350"
                   y="189"
-                  fill="#38bdf8"
+                  fill="#c084fc"
                   font-size="13"
                   font-weight="800"
                   text-anchor="middle"
@@ -1913,7 +1914,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="350"
                   y="206"
-                  fill="#38bdf8"
+                  fill="#c084fc"
                   font-size="13"
                   font-weight="800"
                   text-anchor="middle"
@@ -1934,7 +1935,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="205"
                   y="69"
-                  fill="#34d399"
+                  fill="#00d084"
                   font-size="13"
                   font-weight="700"
                   text-anchor="middle"
@@ -1945,7 +1946,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="205"
                   y="86"
-                  fill="#b0bece"
+                  fill="#8888aa"
                   font-size="11"
                   text-anchor="middle"
                   font-family="DM Sans,sans-serif"
@@ -1958,14 +1959,14 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   width="140"
                   height="68"
                   rx="10"
-                  fill="rgba(139,92,246,.05)"
-                  stroke="rgba(139,92,246,.35)"
+                  fill="rgba(192,132,252,.05)"
+                  stroke="rgba(192,132,252,.35)"
                   stroke-width="1.5"
                 />
                 <text
                   x="495"
                   y="69"
-                  fill="#a78bfa"
+                  fill="#c084fc"
                   font-size="13"
                   font-weight="700"
                   text-anchor="middle"
@@ -1976,7 +1977,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="495"
                   y="86"
-                  fill="#b0bece"
+                  fill="#8888aa"
                   font-size="11"
                   text-anchor="middle"
                   font-family="DM Sans,sans-serif"
@@ -1989,14 +1990,14 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                   width="140"
                   height="68"
                   rx="10"
-                  fill="rgba(56,189,248,.05)"
-                  stroke="rgba(56,189,248,.35)"
+                  fill="rgba(122,0,223,.05)"
+                  stroke="rgba(122,0,223,.35)"
                   stroke-width="1.5"
                 />
                 <text
                   x="600"
                   y="187"
-                  fill="#38bdf8"
+                  fill="#c084fc"
                   font-size="13"
                   font-weight="700"
                   text-anchor="middle"
@@ -2007,7 +2008,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="600"
                   y="204"
-                  fill="#b0bece"
+                  fill="#8888aa"
                   font-size="11"
                   text-anchor="middle"
                   font-family="DM Sans,sans-serif"
@@ -2027,7 +2028,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="495"
                   y="307"
-                  fill="#fbbf24"
+                  fill="#f59e0b"
                   font-size="13"
                   font-weight="700"
                   text-anchor="middle"
@@ -2038,7 +2039,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="495"
                   y="324"
-                  fill="#b0bece"
+                  fill="#8888aa"
                   font-size="11"
                   text-anchor="middle"
                   font-family="DM Sans,sans-serif"
@@ -2058,7 +2059,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="205"
                   y="307"
-                  fill="#f87171"
+                  fill="#ef4444"
                   font-size="13"
                   font-weight="700"
                   text-anchor="middle"
@@ -2069,7 +2070,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="205"
                   y="324"
-                  fill="#b0bece"
+                  fill="#8888aa"
                   font-size="11"
                   text-anchor="middle"
                   font-family="DM Sans,sans-serif"
@@ -2089,7 +2090,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="95"
                   y="187"
-                  fill="#34d399"
+                  fill="#00d084"
                   font-size="13"
                   font-weight="700"
                   text-anchor="middle"
@@ -2100,7 +2101,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                 <text
                   x="95"
                   y="204"
-                  fill="#b0bece"
+                  fill="#8888aa"
                   font-size="11"
                   text-anchor="middle"
                   font-family="DM Sans,sans-serif"
@@ -2908,7 +2909,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
               "
               onmouseover="
                 this.style.transform = 'translateY(-2px)';
-                this.style.boxShadow = '0 6px 20px rgba(56,189,248,.3)';
+                this.style.boxShadow = '0 6px 20px rgba(122,0,223,.3)';
               "
               onmouseout="
                 this.style.transform = '';
@@ -3093,7 +3094,7 @@ li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;bord
                     border-color: rgba(139, 92, 246, 0.25);
                   "
                 >
-                  <h3 style="font-size: 11px; color: #a78bfa">
+                  <h3 style="font-size: 11px; color: #c084fc">
                     Persona: Operations Manager
                   </h3>
                   <p style="font-size: 12px">
